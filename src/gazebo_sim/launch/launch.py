@@ -20,6 +20,8 @@ def generate_launch_description():
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     robot_model = LaunchConfiguration('robot_model', default='model_0')
+    enable_rviz = LaunchConfiguration('enable_rviz', default='true')
+    enable_gui = LaunchConfiguration('enable_gui', default='true')
     ld.add_action(DeclareLaunchArgument('use_sim_time', default_value='true',
                                        description='Использовать симуляционное время'))
     ld.add_action(DeclareLaunchArgument(
@@ -28,6 +30,10 @@ def generate_launch_description():
         description='Модель робота: model_0, model_1, model_3, model_5, model_7',
         choices=['model_0', 'model_1', 'model_3', 'model_5', 'model_7']
     ))
+    ld.add_action(DeclareLaunchArgument('enable_rviz', default_value='true',
+                                       description='Запускать RViz'))
+    ld.add_action(DeclareLaunchArgument('enable_gui', default_value='true',
+                                       description='Запускать GUI управления'))
 
     ld.add_action(SetParameter(name='use_sim_time', value=use_sim_time))
 
@@ -51,7 +57,11 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(
             os.path.join(pkg_path, 'launch', 'gazebo_multi_nav2_world.launch.py')
         ),
-        launch_arguments={'robot_model': robot_model}.items()
+        launch_arguments={
+            'robot_model': robot_model,
+            'enable_rviz': enable_rviz,
+            'enable_gui': enable_gui,
+        }.items()
     )
 
     launch_after_pause = RegisterEventHandler(

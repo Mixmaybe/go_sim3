@@ -78,18 +78,6 @@ def generate_launch_description():
                     ('/clicked_point', 'clicked_point'),
                     ('/initialpose', 'initialpose')])
 
-    exit_event_handler = RegisterEventHandler(
-        condition=UnlessCondition(use_namespace),
-        event_handler=OnProcessExit(
-            target_action=start_rviz_cmd,
-            on_exit=EmitEvent(event=Shutdown(reason='rviz exited'))))
-
-    exit_event_handler_namespaced = RegisterEventHandler(
-        condition=IfCondition(use_namespace),
-        event_handler=OnProcessExit(
-            target_action=start_namespaced_rviz_cmd,
-            on_exit=EmitEvent(event=Shutdown(reason='rviz exited'))))
-
     # Create the launch description and populate
     ld = LaunchDescription()
 
@@ -101,9 +89,5 @@ def generate_launch_description():
     # Add any conditioned actions
     ld.add_action(start_rviz_cmd)
     ld.add_action(start_namespaced_rviz_cmd)
-
-    # Add other nodes and processes we need
-    ld.add_action(exit_event_handler)
-    ld.add_action(exit_event_handler_namespaced)
 
     return ld

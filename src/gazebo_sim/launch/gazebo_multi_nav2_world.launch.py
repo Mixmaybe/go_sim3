@@ -40,7 +40,11 @@ def generate_launch_description():
 
     enable_rviz = LaunchConfiguration('enable_rviz', default='true')
     declare_enable_rviz = DeclareLaunchArgument(
-        name='enable_rviz', default_value=enable_rviz, description='Enable rviz launch'
+        name='enable_rviz', default_value='true', description='Enable rviz launch'
+    )
+    enable_gui = LaunchConfiguration('enable_gui', default='true')
+    declare_enable_gui = DeclareLaunchArgument(
+        name='enable_gui', default_value='true', description='Enable Go2 GUI control'
     )
     robot_model = LaunchConfiguration('robot_model', default='model_0')
     declare_robot_model = DeclareLaunchArgument(
@@ -51,6 +55,7 @@ def generate_launch_description():
     )
 
     ld.add_action(declare_enable_rviz)
+    ld.add_action(declare_enable_gui)
     ld.add_action(declare_use_sim_time)
     ld.add_action(declare_robot_model)
 
@@ -288,6 +293,19 @@ def generate_launch_description():
             remappings=remappings
         )
 
+        gui_control = Node(
+            package='quadropted_controller',
+            executable='go2_gui_control.py',
+            namespace=namespace,
+            name='go2_gui_control',
+            output='screen',
+            parameters=[{
+                'robot_namespace': namespace,
+                'robot_id': i + 1,
+            }],
+            condition=IfCondition(enable_gui)
+        )
+
         fake_bms = ExecuteProcess(
             cmd=[
                 'ros2', 'topic', 'pub', f'/{namespace}/battery_state', 'sensor_msgs/msg/BatteryState',
@@ -316,6 +334,7 @@ def generate_launch_description():
             joint_group_controller,
             controller,
             cmd_vel_pub,
+            gui_control,
             odom,
             # start_robot_localization_cmd,
             # aprilTag,

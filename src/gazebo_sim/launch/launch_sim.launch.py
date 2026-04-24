@@ -42,7 +42,7 @@ def generate_launch_description():
     )
 
 
-    world = os.path.join(pkg_path, 'world', 'empty.world')    
+    world = os.path.join(pkg_path, 'world', 'city_second_new.sdf')    
     # Include the Gazebo launch file, provided by the ros_gz_sim package
     gazebo = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
@@ -54,7 +54,7 @@ def generate_launch_description():
     spawn_entity = Node(package='ros_gz_sim', executable='create', namespace=namespace,
                         arguments=['-topic', f'{namespace}/robot_description',
                                    '-name', f'{namespace}/my_bot',
-                                   '-z', '0.4'],
+                                   '-z', '0.8'],
                         output='screen')
 
 
@@ -177,7 +177,7 @@ def generate_launch_description():
         }.items()
     )
 
-    rviz_config_file = os.path.join(pkg_path, 'config', 'multi_nav2_default_view.rviz')
+    rviz_config_file = os.path.join(pkg_path, 'rviz', 'multi_nav2_default_view.rviz')
     rviz = IncludeLaunchDescription(
             PythonLaunchDescriptionSource(os.path.join(pkg_path, 'launch', "rviz_launch.py")),
             launch_arguments={
