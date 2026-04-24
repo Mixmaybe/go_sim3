@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="cargo_box" params="robot_model parent_link:=trunk">
+        <xacro:property name="cargo_box_enabled" value="${robot_model in ['model_1', 'model_3', 'model_5', 'model_7']}"/>
+        <xacro:property name="cargo_box_mass" value="${1.0 if robot_model == 'model_1' else 3.0 if robot_model == 'model_3' else 5.0 if robot_model == 'model_5' else 7.0 if robot_model == 'model_7' else 0.0}"/>
+        <xacro:property name="cargo_box_color" value="${'white' if robot_model == 'model_1' else 'yellow' if robot_model == 'model_3' else 'orange' if robot_model == 'model_5' else 'red' if robot_model == 'model_7' else 'white'}"/>
+        <xacro:property name="cargo_box_ixx" value="${cargo_box_mass * (cargo_box_width * cargo_box_width + cargo_box_height * cargo_box_height) / 12.0}"/>
+        <xacro:property name="cargo_box_iyy" value="${cargo_box_mass * (cargo_box_length * cargo_box_length + cargo_box_height * cargo_box_height) / 12.0}"/>
+        <xacro:property name="cargo_box_izz" value="${cargo_box_mass * (cargo_box_length * cargo_box_length + cargo_box_width * cargo_box_width) / 12.0}"/>
+
+        <xacro:if value="${cargo_box_enabled}">
+            <joint name="cargo_box_joint" type="fixed">
+                <origin rpy="0 0 0" xyz="${cargo_box_offset_x} ${cargo_box_offset_y} ${cargo_box_offset_z}"/>
+                <parent link="${parent_link}"/>
+                <child link="cargo_box_link"/>
+            </joint>
+
+            <link name="cargo_box_link">
+                <visual>
+                    <origin rpy="0 0 0" xyz="0 0 0"/>
+                    <geometry>
+                        <box size="${cargo_box_length} ${cargo_box_width} ${cargo_box_height}"/>
+                    </geometry>
+                    <material name="${cargo_box_color}"/>
+                </visual>
+                <collision>
+                    <origin rpy="0 0 0" xyz="0 0 0"/>
+                    <geometry>
+                        <box size="${cargo_box_length} ${cargo_box_width} ${cargo_box_height}"/>
+                    </geometry>
+                </collision>
+                <inertial>
+                    <origin rpy="0 0 0" xyz="0 0 0"/>
+                    <mass value="${cargo_box_mass}"/>
+                    <inertia
+                        ixx="${cargo_box_ixx}" ixy="0.0" ixz="0.0"
+                        iyy="${cargo_box_iyy}" iyz="0.0"
+                        izz="${cargo_box_izz}"/>
+                </inertial>
+            </link>
+        </xacro:if>
+    </xacro:macro>
+
+</robot>
