@@ -59,6 +59,12 @@ def generate_launch_description():
         default_value='false',
         description='Enable optional robot_localization EKF for leg odometry'
     )
+    use_ground_truth_odom = LaunchConfiguration('use_ground_truth_odom', default='true')
+    declare_use_ground_truth_odom = DeclareLaunchArgument(
+        name='use_ground_truth_odom',
+        default_value='true',
+        description='Use Gazebo ground truth as simulation navigation odometry'
+    )
     robot_model = LaunchConfiguration('robot_model', default='model_0')
     declare_robot_model = DeclareLaunchArgument(
         name='robot_model',
@@ -71,6 +77,7 @@ def generate_launch_description():
     ld.add_action(declare_enable_gui)
     ld.add_action(declare_enable_odom_debug)
     ld.add_action(declare_enable_ekf)
+    ld.add_action(declare_use_ground_truth_odom)
     ld.add_action(declare_use_sim_time)
     ld.add_action(declare_robot_model)
 
@@ -132,8 +139,23 @@ def generate_launch_description():
         robot1_debug_condition = IfCondition(
             PythonExpression(["'", enable_odom_debug, "' == 'true' and '", namespace, "' == 'robot1'"])
         )
+        robot1_ground_truth_condition = IfCondition(
+            PythonExpression(
+                [
+                    "('", enable_odom_debug, "' == 'true' or '",
+                    use_ground_truth_odom, "' == 'true') and '",
+                    namespace, "' == 'robot1'"
+                ]
+            )
+        )
         robot1_ekf_condition = IfCondition(
-            PythonExpression(["'", enable_ekf, "' == 'true' and '", namespace, "' == 'robot1'"])
+            PythonExpression(
+                [
+                    "'", enable_ekf, "' == 'true' and '",
+                    use_ground_truth_odom, "' != 'true' and '",
+                    namespace, "' == 'robot1'"
+                ]
+            )
         )
         robot_desc = Command([
             'xacro ', xacro_file,
@@ -179,7 +201,6 @@ def generate_launch_description():
                 f'/{namespace}/scan@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan',
                 f'/model/{namespace}_my_bot/pose@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V',
                 # f'/{namespace}/tf@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V',
-                f'/{namespace}/joint_states@sensor_msgs/msg/JointState@gz.msgs.Model',
                 f'/{namespace}/color/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo',
                 f'/{namespace}/color/image_raw@sensor_msgs/msg/Image@gz.msgs.Image',
                 f'/{namespace}/color/image_rect@sensor_msgs/msg/Image@gz.msgs.Image',
@@ -235,8 +256,12 @@ def generate_launch_description():
                 'use_sim_time': use_sim_time,
                 'joint_states_topic': 'joint_states',
                 'ground_truth_topic': f'/model/{namespace}_my_bot/pose',
+                'model_frame_id': f'{namespace}_my_bot',
+                'world_frame_id': 'city_second',
+                'allow_fallback_first_transform': False,
                 'imu_topic': 'imu_plugin/out',
                 'expected_contacts_topic': 'foot_contacts_expected',
+                'use_adaptive_ground_z': True,
                 'publish_rate': 50,
                 'verbose': False,
             }],
@@ -276,10 +301,31 @@ def generate_launch_description():
                 'base_frame_id': "base_link",
                 'odom_frame_id': "odom",
                 'clock_topic': f'/clock',
-                'enable_odom_tf': True,
-                'publish_legacy_odom': True,
+                'enable_odom_tf': ParameterValue(
+                    PythonExpression(
+                        [
+                            "'", use_ground_truth_odom, "' != 'true' and '",
+                            enable_ekf, "' != 'true'"
+                        ]
+                    ),
+                    value_type=bool
+                ),
+                'publish_legacy_odom': ParameterValue(
+                    PythonExpression(
+                        [
+                            "'", use_ground_truth_odom, "' != 'true' and '",
+                            enable_ekf, "' != 'true'"
+                        ]
+                    ),
+                    value_type=bool
+                ),
                 'publish_filtered_odom': ParameterValue(
-                    PythonExpression(["'", enable_ekf, "' != 'true'"]),
+                    PythonExpression(
+                        [
+                            "'", use_ground_truth_odom, "' != 'true' and '",
+                            enable_ekf, "' != 'true'"
+                        ]
+                    ),
                     value_type=bool
                 ),
                 'min_stable_contacts': 1,
@@ -298,13 +344,28 @@ def generate_launch_description():
             parameters=[{
                 'use_sim_time': use_sim_time,
                 'ground_truth_pose_topic': f'/model/{namespace}_my_bot/pose',
-                'preferred_child_frame_contains': f'{namespace}_my_bot',
+                'model_frame_id': f'{namespace}_my_bot',
+                'world_frame_id': 'city_second',
+                'allow_fallback_first_transform': False,
                 'ground_truth_frame_id': 'map',
                 'child_frame_id': 'ground_truth_base_link',
                 'publish_tf': False,
+                'publish_nav_odom': ParameterValue(
+                    PythonExpression(["'", use_ground_truth_odom, "' == 'true'"]),
+                    value_type=bool
+                ),
+                'publish_nav_tf': ParameterValue(
+                    PythonExpression(["'", use_ground_truth_odom, "' == 'true'"]),
+                    value_type=bool
+                ),
+                'nav_odom_topic': 'odom',
+                'nav_filtered_topic': 'odometry/filtered',
+                'nav_odom_frame_id': 'odom',
+                'nav_base_frame_id': 'base_link',
+                'zero_start': True,
                 'verbose': False,
             }],
-            condition=robot1_debug_condition,
+            condition=robot1_ground_truth_condition,
             remappings=remappings
         )
 

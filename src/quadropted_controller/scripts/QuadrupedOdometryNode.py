@@ -157,8 +157,12 @@ class DogOdometry(Node):
         )
 
         self.leg_odom_pub = self.create_publisher(Odometry, 'leg_odom_raw', reliable_qos)
-        self.legacy_odom_pub = self.create_publisher(Odometry, 'odom', reliable_qos)
-        self.filtered_odom_pub = self.create_publisher(Odometry, 'odometry/filtered', reliable_qos)
+        self.legacy_odom_pub = None
+        self.filtered_odom_pub = None
+        if self.publish_legacy_odom:
+            self.legacy_odom_pub = self.create_publisher(Odometry, 'odom', reliable_qos)
+        if self.publish_filtered_odom:
+            self.filtered_odom_pub = self.create_publisher(Odometry, 'odometry/filtered', reliable_qos)
         self.debug_pub = self.create_publisher(String, 'leg_odom_debug', reliable_qos)
         self.path_pub = self.create_publisher(Path, 'leg_odom_path', reliable_qos)
 
@@ -556,9 +560,9 @@ class DogOdometry(Node):
         stamp = self.stamp_now()
         odom = self.build_odometry_msg(stamp, stable_contact_count, slip_detected)
         self.leg_odom_pub.publish(odom)
-        if self.publish_legacy_odom:
+        if self.publish_legacy_odom and self.legacy_odom_pub is not None:
             self.legacy_odom_pub.publish(odom)
-        if self.publish_filtered_odom:
+        if self.publish_filtered_odom and self.filtered_odom_pub is not None:
             self.filtered_odom_pub.publish(odom)
         self.publish_tf(stamp)
         self.publish_path(stamp)

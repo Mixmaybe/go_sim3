@@ -42,11 +42,14 @@ class FootContactEstimator(Node):
         self.declare_parameter('ground_truth_topic', '/model/robot1_my_bot/pose')
         self.declare_parameter('imu_topic', 'imu_plugin/out')
         self.declare_parameter('expected_contacts_topic', 'foot_contacts_expected')
-        self.declare_parameter('preferred_child_frame_contains', 'robot1_my_bot')
+        self.declare_parameter('model_frame_id', 'robot1_my_bot')
+        self.declare_parameter('world_frame_id', 'city_second')
+        self.declare_parameter('allow_fallback_first_transform', False)
         self.declare_parameter('contact_on_z_threshold', 0.035)
         self.declare_parameter('contact_off_z_threshold', 0.055)
         self.declare_parameter('contact_vxy_threshold', 0.08)
         self.declare_parameter('ground_z', 0.0)
+        self.declare_parameter('use_adaptive_ground_z', True)
         self.declare_parameter('publish_rate', 50)
         self.declare_parameter('verbose', False)
 
@@ -54,11 +57,14 @@ class FootContactEstimator(Node):
         self.ground_truth_topic = self.get_parameter('ground_truth_topic').value
         self.imu_topic = self.get_parameter('imu_topic').value
         self.expected_contacts_topic = self.get_parameter('expected_contacts_topic').value
-        self.preferred_child_frame_contains = self.get_parameter('preferred_child_frame_contains').value
+        self.model_frame_id = self.get_parameter('model_frame_id').value
+        self.world_frame_id = self.get_parameter('world_frame_id').value
+        self.allow_fallback_first_transform = self.get_parameter('allow_fallback_first_transform').value
         self.contact_on_z_threshold = self.get_parameter('contact_on_z_threshold').value
         self.contact_off_z_threshold = self.get_parameter('contact_off_z_threshold').value
         self.contact_vxy_threshold = self.get_parameter('contact_vxy_threshold').value
         self.ground_z = self.get_parameter('ground_z').value
+        self.use_adaptive_ground_z = self.get_parameter('use_adaptive_ground_z').value
         publish_rate = self.get_parameter('publish_rate').value
         self.verbose = self.get_parameter('verbose').value
 
@@ -147,16 +153,31 @@ class FootContactEstimator(Node):
 
         selected = None
         for transform in msg.transforms:
-            if self.preferred_child_frame_contains in transform.child_frame_id:
-                selected = transform
-                break
+            if transform.child_frame_id != self.model_frame_id:
+                continue
 
-        if selected is None:
+            if transform.header.frame_id != self.world_frame_id:
+                self.warn_throttle(
+                    'gt_world_mismatch',
+                    'Ground truth model transform has frame_id '
+                    f'"{transform.header.frame_id}", expected "{self.world_frame_id}".'
+                )
+            selected = transform
+            break
+
+        if selected is None and self.allow_fallback_first_transform:
             selected = msg.transforms[0]
             self.warn_throttle(
                 'gt_fallback',
-                'Preferred ground truth child frame was not found; using first transform in TFMessage.'
+                f'Model transform child_frame_id == {self.model_frame_id} not found; '
+                'using first transform in TFMessage because fallback is enabled.'
             )
+        elif selected is None:
+            self.warn_throttle(
+                'gt_missing_model',
+                f'Model transform child_frame_id == {self.model_frame_id} not found.'
+            )
+            return
 
         translation = selected.transform.translation
         rotation = selected.transform.rotation
@@ -213,7 +234,6 @@ class FootContactEstimator(Node):
         foot_world = []
         foot_world_z = []
         foot_world_vxy = []
-        contacts = []
 
         for leg_index, foot_base in enumerate(foot_positions_base):
             foot_base_np = np.array(foot_base, dtype=float)
@@ -228,14 +248,17 @@ class FootContactEstimator(Node):
                 vxy = 0.0
             foot_world_vxy.append(float(vxy))
 
+        contact_z_reference = min(foot_world_z) if self.use_adaptive_ground_z else self.ground_z
+        contacts = []
+        for leg_index, foot_world_np in enumerate(foot_world):
             z_threshold = (
                 self.contact_off_z_threshold
                 if self.current_contacts[leg_index]
                 else self.contact_on_z_threshold
             )
             in_contact = (
-                foot_world_np[2] <= self.ground_z + z_threshold
-                and vxy <= self.contact_vxy_threshold
+                foot_world_np[2] <= contact_z_reference + z_threshold
+                and foot_world_vxy[leg_index] <= self.contact_vxy_threshold
             )
             contacts.append(bool(in_contact))
 
@@ -245,7 +268,8 @@ class FootContactEstimator(Node):
 
         if self.verbose:
             self.get_logger().info(
-                f'Measured contacts: {contacts}, foot_world_z={foot_world_z}, foot_world_vxy={foot_world_vxy}'
+                f'Measured contacts: {contacts}, foot_world_z={foot_world_z}, '
+                f'foot_world_vxy={foot_world_vxy}, contact_z_reference={contact_z_reference:.4f}'
             )
 
         self.publish_contacts(contacts, foot_world_z=foot_world_z, foot_world_vxy=foot_world_vxy)

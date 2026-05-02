@@ -4,9 +4,8 @@
     frequency: 50.0
     sensor_timeout: 0.1
     two_d_mode: true
-    # Raw leg odometry remains the owner of odom->base_link TF.
-    # EKF publishes /robot1/odometry/filtered for Nav2/debug without creating a duplicate TF publisher.
-    publish_tf: false
+    # EKF owns odom->base_link TF when enable_ekf=true and use_ground_truth_odom=false.
+    publish_tf: true
     publish_acceleration: false
     print_diagnostics: true
     reset_on_time_jump: true
