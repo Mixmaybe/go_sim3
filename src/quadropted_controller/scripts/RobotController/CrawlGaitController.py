@@ -5,9 +5,11 @@ import rclpy
 from rclpy.node import Node
 from RoboticsUtilities.Transformations import rotz
 from .GaitController import GaitController
+from quadropted_msgs.msg import RobotFootContact
 
 class CrawlGaitController(GaitController):
-    def __init__(self, default_stance, stance_time, swing_time, time_step):
+    def __init__(self, node, default_stance, stance_time, swing_time, time_step):
+        self.node = node
         contact_phases = np.array([[1, 1, 1, 0, 1, 1, 1, 1],    # 0: leg swing
                                    [1, 1, 1, 1, 1, 1, 1, 0],    # 1: Moving stance forward
                                    [1, 0, 1, 1, 1, 1, 1, 1],    
@@ -17,6 +19,14 @@ class CrawlGaitController(GaitController):
         z_leg_lift = 0.14
 
         super().__init__(stance_time, swing_time, time_step, contact_phases, default_stance)
+        self.foot_contact_expected_pub = self.node.create_publisher(
+            RobotFootContact,
+            "foot_contacts_expected",
+            10
+        )
+        # foot_contact is legacy expected contact topic.
+        # Odometry must use foot_contacts_measured, not foot_contact.
+        self.foot_contact_pub = self.node.create_publisher(RobotFootContact, "foot_contact", 10)
         self.max_x_velocity = 0.011 #[m/s]
         self.max_yaw_rate = 0.15 #[rad/s]
         self.body_shift_y = 0.06
@@ -28,12 +38,20 @@ class CrawlGaitController(GaitController):
 
         self.first_cycle = True
 
+    def publish_expected_contacts(self, contacts):
+        # foot_contacts_expected are gait schedule contacts, not physical contacts.
+        foot_contact_msg = RobotFootContact()
+        foot_contact_msg.contacts = [bool(contact) for contact in contacts]
+        self.foot_contact_expected_pub.publish(foot_contact_msg)
+        self.foot_contact_pub.publish(foot_contact_msg)
+
     def updateStateCommand(self, msg, state, command):
         command.velocity[0] = msg.axes[4] * self.max_x_velocity
         command.yaw_rate = msg.axes[0] * self.max_yaw_rate
 
     def step(self, state, command):
         contact_modes = self.contacts(state.ticks)   
+        self.publish_expected_contacts(contact_modes.tolist())
         new_foot_locations = np.zeros((3,4))
         phase_index = self.phase_index(state.ticks)
 

@@ -12,6 +12,9 @@ install(
 install(PROGRAMS
   scripts/robot_controller_gazebo.py
   scripts/QuadrupedOdometryNode.py
+  scripts/FootContactEstimatorNode.py
+  scripts/GroundTruthOdometryNode.py
+  scripts/OdometryEvaluatorNode.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

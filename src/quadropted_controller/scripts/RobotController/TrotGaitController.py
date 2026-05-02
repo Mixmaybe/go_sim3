@@ -32,6 +32,13 @@ class TrotGaitController(GaitController):
         
         self.velocity_pub = self.node.create_publisher(Twist, "controller_velocity", 10)  # Используем переданный node
 
+        self.foot_contact_expected_pub = self.node.create_publisher(
+            RobotFootContact,
+            "foot_contacts_expected",
+            10
+        )
+        # foot_contact is legacy expected contact topic.
+        # Odometry must use foot_contacts_measured, not foot_contact.
         self.foot_contact_pub = self.node.create_publisher(RobotFootContact, "foot_contact", 10)
 
         self.max_x_velocity = 0.035  # [m/s]
@@ -58,6 +65,13 @@ class TrotGaitController(GaitController):
         # TODO: tune kp, ki and kd
         #                                     kp    ki    kd
         self.pid_controller = PID_controller(0.15, 0.02, 0.2)
+
+    def publish_expected_contacts(self, contacts):
+        # foot_contacts_expected are gait schedule contacts, not physical contacts.
+        foot_contact_msg = RobotFootContact()
+        foot_contact_msg.contacts = [bool(contact) for contact in contacts]
+        self.foot_contact_expected_pub.publish(foot_contact_msg)
+        self.foot_contact_pub.publish(foot_contact_msg)
 
     def updateStateCommand(self, msg, state, command):
         command.velocity[0] = msg.axes[4] * self.max_x_velocity
@@ -109,9 +123,7 @@ class TrotGaitController(GaitController):
         if self.trotNeeded:
             contact_modes = self.contacts(state.ticks)
 
-            foot_contact_msg = RobotFootContact()
-            foot_contact_msg.contacts = [bool(mode) for mode in contact_modes.tolist()]
-            self.foot_contact_pub.publish(foot_contact_msg)
+            self.publish_expected_contacts(contact_modes.tolist())
 
             new_foot_locations = np.zeros((3, 4))
             for leg_index in range(4):
@@ -140,9 +152,7 @@ class TrotGaitController(GaitController):
             temp = self.default_stance.copy()
             temp[2] = [command.robot_height] * 4
 
-            foot_contact_msg = RobotFootContact()
-            foot_contact_msg.contacts = [True, True, True, True]  # [FR, FL, RR, RL]
-            self.foot_contact_pub.publish(foot_contact_msg)
+            self.publish_expected_contacts([True, True, True, True])  # [FR, FL, RR, RL]
             
             return temp
 

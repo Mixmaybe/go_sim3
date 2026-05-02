@@ -10,10 +10,11 @@ from launch.actions import (
     RegisterEventHandler
 )
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration, Command
+from launch.substitutions import LaunchConfiguration, Command, PythonExpression
 from launch_ros.descriptions import ComposableNode
 from launch.conditions import IfCondition
 from launch_ros.actions import Node, SetRemap, ComposableNodeContainer
+from launch_ros.parameter_descriptions import ParameterValue
 from launch.event_handlers import OnProcessExit
 import yaml
 
@@ -46,6 +47,18 @@ def generate_launch_description():
     declare_enable_gui = DeclareLaunchArgument(
         name='enable_gui', default_value='true', description='Enable Go2 GUI control'
     )
+    enable_odom_debug = LaunchConfiguration('enable_odom_debug', default='true')
+    declare_enable_odom_debug = DeclareLaunchArgument(
+        name='enable_odom_debug',
+        default_value='true',
+        description='Enable ground truth odometry and odometry metrics debug nodes'
+    )
+    enable_ekf = LaunchConfiguration('enable_ekf', default='false')
+    declare_enable_ekf = DeclareLaunchArgument(
+        name='enable_ekf',
+        default_value='false',
+        description='Enable optional robot_localization EKF for leg odometry'
+    )
     robot_model = LaunchConfiguration('robot_model', default='model_0')
     declare_robot_model = DeclareLaunchArgument(
         name='robot_model',
@@ -56,6 +69,8 @@ def generate_launch_description():
 
     ld.add_action(declare_enable_rviz)
     ld.add_action(declare_enable_gui)
+    ld.add_action(declare_enable_odom_debug)
+    ld.add_action(declare_enable_ekf)
     ld.add_action(declare_use_sim_time)
     ld.add_action(declare_robot_model)
 
@@ -113,6 +128,13 @@ def generate_launch_description():
     for i, robot in enumerate(robots):
         namespace = robot['name']
         robot_name = robot['name']
+        robot1_condition = IfCondition(PythonExpression(["'", namespace, "' == 'robot1'"]))
+        robot1_debug_condition = IfCondition(
+            PythonExpression(["'", enable_odom_debug, "' == 'true' and '", namespace, "' == 'robot1'"])
+        )
+        robot1_ekf_condition = IfCondition(
+            PythonExpression(["'", enable_ekf, "' == 'true' and '", namespace, "' == 'robot1'"])
+        )
         robot_desc = Command([
             'xacro ', xacro_file,
             ' robot_name:=', robot_name,
@@ -203,6 +225,25 @@ def generate_launch_description():
             remappings=remappings
         )
 
+        foot_contact_estimator = Node(
+            package='quadropted_controller',
+            executable='FootContactEstimatorNode.py',
+            name='foot_contact_estimator',
+            namespace=namespace,
+            output='screen',
+            parameters=[{
+                'use_sim_time': use_sim_time,
+                'joint_states_topic': 'joint_states',
+                'ground_truth_topic': f'/model/{namespace}_my_bot/pose',
+                'imu_topic': 'imu_plugin/out',
+                'expected_contacts_topic': 'foot_contacts_expected',
+                'publish_rate': 50,
+                'verbose': False,
+            }],
+            condition=robot1_condition,
+            remappings=remappings
+        )
+
         # apriltag_launch_file = os.path.join(get_package_share_directory('yahboom_rosmaster_docking'), 'launch', 'apriltag_dock_pose_publisher.launch.py')
         # aprilTag = IncludeLaunchDescription(
         #     PythonLaunchDescriptionSource(apriltag_launch_file),
@@ -221,17 +262,85 @@ def generate_launch_description():
             namespace=namespace,
             output='screen',
             parameters=[{
+                'use_sim_time': use_sim_time,
                 "verbose": False,
                 'publish_rate': 50,
-                'open_loop': False,
-                'has_imu_heading': True,
+                'use_imu_heading': True,
                 'is_gazebo': True,
-                'imu_topic': f'/{namespace}/imu',
+                'joint_states_topic': 'joint_states',
+                'measured_contacts_topic': 'foot_contacts_measured',
+                'expected_contacts_topic': 'foot_contacts_expected',
+                'imu_topic': 'imu_plugin/out',
+                'robot_velocity_topic': 'robot_velocity',
+                'amcl_pose_topic': 'amcl_pose',
                 'base_frame_id': "base_link",
                 'odom_frame_id': "odom",
                 'clock_topic': f'/clock',
                 'enable_odom_tf': True,
+                'publish_legacy_odom': True,
+                'publish_filtered_odom': ParameterValue(
+                    PythonExpression(["'", enable_ekf, "' != 'true'"]),
+                    value_type=bool
+                ),
+                'min_stable_contacts': 1,
+                'no_contact_mode': 'freeze_xy',
+                'use_amcl_soft_correction': False,
             }],
+            remappings=remappings
+        )
+
+        ground_truth_odom = Node(
+            package='quadropted_controller',
+            executable='GroundTruthOdometryNode.py',
+            name='ground_truth_odometry',
+            namespace=namespace,
+            output='screen',
+            parameters=[{
+                'use_sim_time': use_sim_time,
+                'ground_truth_pose_topic': f'/model/{namespace}_my_bot/pose',
+                'preferred_child_frame_contains': f'{namespace}_my_bot',
+                'ground_truth_frame_id': 'map',
+                'child_frame_id': 'ground_truth_base_link',
+                'publish_tf': False,
+                'verbose': False,
+            }],
+            condition=robot1_debug_condition,
+            remappings=remappings
+        )
+
+        odometry_evaluator = Node(
+            package='quadropted_controller',
+            executable='OdometryEvaluatorNode.py',
+            name='odometry_evaluator',
+            namespace=namespace,
+            output='screen',
+            parameters=[{
+                'use_sim_time': use_sim_time,
+                'estimated_odom_topic': 'leg_odom_raw',
+                'filtered_odom_topic': 'odometry/filtered',
+                'legacy_odom_topic': 'odom',
+                'ground_truth_topic': 'ground_truth/odom',
+                'amcl_pose_topic': 'amcl_pose',
+                'goal_pose_topic': 'goal_pose',
+                'leg_odom_debug_topic': 'leg_odom_debug',
+                'imu_topic': 'imu_plugin/out',
+                'publish_rate': 2.0,
+                'csv_path': '/tmp/go_sim3_odometry_metrics_robot1.csv',
+                'verbose': False,
+            }],
+            condition=robot1_debug_condition,
+            remappings=remappings
+        )
+
+        robot_localization_file_path = os.path.join(pkg_path, 'config', 'ekf_leg_odom.yaml')
+        start_robot_localization_cmd = Node(
+            package='robot_localization',
+            executable='ekf_node',
+            name='ekf_filter_node',
+            namespace=namespace,
+            output='screen',
+            parameters=[robot_localization_file_path, {'use_sim_time': use_sim_time}],
+            condition=robot1_ekf_condition,
             remappings=remappings
         )
 
@@ -332,11 +441,14 @@ def generate_launch_description():
             SetRemap(src="/tf_static", dst="tf_static"),
             joint_state_broadcaster,
             joint_group_controller,
+            foot_contact_estimator,
             controller,
             cmd_vel_pub,
             gui_control,
+            ground_truth_odom,
             odom,
-            # start_robot_localization_cmd,
+            odometry_evaluator,
+            start_robot_localization_cmd,
             # aprilTag,
             fake_bms,
         ])

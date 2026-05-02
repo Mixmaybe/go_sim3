@@ -22,6 +22,8 @@ def generate_launch_description():
     robot_model = LaunchConfiguration('robot_model', default='model_0')
     enable_rviz = LaunchConfiguration('enable_rviz', default='true')
     enable_gui = LaunchConfiguration('enable_gui', default='true')
+    enable_odom_debug = LaunchConfiguration('enable_odom_debug', default='true')
+    enable_ekf = LaunchConfiguration('enable_ekf', default='false')
     ld.add_action(DeclareLaunchArgument('use_sim_time', default_value='true',
                                        description='Использовать симуляционное время'))
     ld.add_action(DeclareLaunchArgument(
@@ -34,6 +36,10 @@ def generate_launch_description():
                                        description='Запускать RViz'))
     ld.add_action(DeclareLaunchArgument('enable_gui', default_value='true',
                                        description='Запускать GUI управления'))
+    ld.add_action(DeclareLaunchArgument('enable_odom_debug', default_value='true',
+                                       description='Запускать debug-узлы одометрии'))
+    ld.add_action(DeclareLaunchArgument('enable_ekf', default_value='false',
+                                       description='Запускать robot_localization EKF'))
 
     ld.add_action(SetParameter(name='use_sim_time', value=use_sim_time))
 
@@ -58,9 +64,12 @@ def generate_launch_description():
             os.path.join(pkg_path, 'launch', 'gazebo_multi_nav2_world.launch.py')
         ),
         launch_arguments={
+            'use_sim_time': use_sim_time,
             'robot_model': robot_model,
             'enable_rviz': enable_rviz,
             'enable_gui': enable_gui,
+            'enable_odom_debug': enable_odom_debug,
+            'enable_ekf': enable_ekf,
         }.items()
     )
 

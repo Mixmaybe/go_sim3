@@ -30,7 +30,7 @@ class Robot:
         )
 
         self.crawlGaitController = CrawlGaitController(
-            self.default_stance,
+            self.node, self.default_stance,
             stance_time=0.55, swing_time=0.45, time_step=0.02
         )
 
