@@ -19,10 +19,10 @@ class TrotGaitController(GaitController):
         self.trotNeeded = True
         
         
-        contact_phases = np.array([[1, 1, 1, 0],  # 0: Leg swing
-                                   [1, 0, 1, 1],  # 1: Moving stance forward
-                                   [1, 0, 1, 1],  
-                                   [1, 1, 1, 0]])
+        contact_phases = np.array([[1, 1, 0, 1],  # 0: Leg swing
+                                   [0, 1, 1, 1],  # 1: Moving stance forward
+                                   [0, 1, 1, 1],  
+                                   [1, 1, 0, 1]])
 
         z_error_constant = 0.02  # This constant determines how fast we move
                                  # toward the goal in the z direction
@@ -57,7 +57,7 @@ class TrotGaitController(GaitController):
 
         # TODO: tune kp, ki and kd
         #                                     kp    ki    kd
-        self.pid_controller = PID_controller(0.15, 0.02, 0.002)
+        self.pid_controller = PID_controller(0.15, 0.02, 0.2)
 
     def updateStateCommand(self, msg, state, command):
         command.velocity[0] = msg.axes[4] * self.max_x_velocity
