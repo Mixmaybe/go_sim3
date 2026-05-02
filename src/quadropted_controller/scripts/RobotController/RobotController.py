@@ -142,7 +142,7 @@ class Robot:
             self.command.trot_event = False
             self.command.crawl_event = False
 
-            self.body_z_target = -0.15
+            self.body_z_target = -0.17
             self.change_controller()
 
             response.success = True
