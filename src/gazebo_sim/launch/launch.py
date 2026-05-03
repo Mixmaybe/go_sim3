@@ -24,7 +24,8 @@ def generate_launch_description():
     enable_gui = LaunchConfiguration('enable_gui', default='true')
     enable_odom_debug = LaunchConfiguration('enable_odom_debug', default='true')
     enable_ekf = LaunchConfiguration('enable_ekf', default='false')
-    use_ground_truth_odom = LaunchConfiguration('use_ground_truth_odom', default='true')
+    use_ground_truth_odom = LaunchConfiguration('use_ground_truth_odom', default='false')
+    use_gazebo_truth_odom = LaunchConfiguration('use_gazebo_truth_odom', default='true')
     ld.add_action(DeclareLaunchArgument('use_sim_time', default_value='true',
                                        description='Использовать симуляционное время'))
     ld.add_action(DeclareLaunchArgument(
@@ -41,8 +42,10 @@ def generate_launch_description():
                                        description='Запускать debug-узлы одометрии'))
     ld.add_action(DeclareLaunchArgument('enable_ekf', default_value='false',
                                        description='Запускать robot_localization EKF'))
-    ld.add_action(DeclareLaunchArgument('use_ground_truth_odom', default_value='true',
-                                       description='Использовать Gazebo ground truth как рабочую odometry в симуляции'))
+    ld.add_action(DeclareLaunchArgument('use_ground_truth_odom', default_value='false',
+                                       description='Legacy ground truth odometry mode'))
+    ld.add_action(DeclareLaunchArgument('use_gazebo_truth_odom', default_value='true',
+                                       description='Использовать Gazebo model pose как рабочую odometry в симуляции'))
 
     ld.add_action(SetParameter(name='use_sim_time', value=use_sim_time))
 
@@ -74,6 +77,7 @@ def generate_launch_description():
             'enable_odom_debug': enable_odom_debug,
             'enable_ekf': enable_ekf,
             'use_ground_truth_odom': use_ground_truth_odom,
+            'use_gazebo_truth_odom': use_gazebo_truth_odom,
         }.items()
     )
 

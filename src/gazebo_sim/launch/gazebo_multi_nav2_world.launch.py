@@ -59,11 +59,17 @@ def generate_launch_description():
         default_value='false',
         description='Enable optional robot_localization EKF for leg odometry'
     )
-    use_ground_truth_odom = LaunchConfiguration('use_ground_truth_odom', default='true')
+    use_ground_truth_odom = LaunchConfiguration('use_ground_truth_odom', default='false')
     declare_use_ground_truth_odom = DeclareLaunchArgument(
         name='use_ground_truth_odom',
+        default_value='false',
+        description='Legacy ground truth odometry mode'
+    )
+    use_gazebo_truth_odom = LaunchConfiguration('use_gazebo_truth_odom', default='true')
+    declare_use_gazebo_truth_odom = DeclareLaunchArgument(
+        name='use_gazebo_truth_odom',
         default_value='true',
-        description='Use Gazebo ground truth as simulation navigation odometry'
+        description='Use exact Gazebo model pose as simulation navigation odometry'
     )
     robot_model = LaunchConfiguration('robot_model', default='model_0')
     declare_robot_model = DeclareLaunchArgument(
@@ -78,6 +84,7 @@ def generate_launch_description():
     ld.add_action(declare_enable_odom_debug)
     ld.add_action(declare_enable_ekf)
     ld.add_action(declare_use_ground_truth_odom)
+    ld.add_action(declare_use_gazebo_truth_odom)
     ld.add_action(declare_use_sim_time)
     ld.add_action(declare_robot_model)
 
@@ -139,6 +146,9 @@ def generate_launch_description():
         robot1_debug_condition = IfCondition(
             PythonExpression(["'", enable_odom_debug, "' == 'true' and '", namespace, "' == 'robot1'"])
         )
+        robot1_gazebo_truth_condition = IfCondition(
+            PythonExpression(["'", use_gazebo_truth_odom, "' == 'true' and '", namespace, "' == 'robot1'"])
+        )
         robot1_ground_truth_condition = IfCondition(
             PythonExpression(
                 [
@@ -153,6 +163,7 @@ def generate_launch_description():
                 [
                     "'", enable_ekf, "' == 'true' and '",
                     use_ground_truth_odom, "' != 'true' and '",
+                    use_gazebo_truth_odom, "' != 'true' and '",
                     namespace, "' == 'robot1'"
                 ]
             )
@@ -305,6 +316,7 @@ def generate_launch_description():
                     PythonExpression(
                         [
                             "'", use_ground_truth_odom, "' != 'true' and '",
+                            use_gazebo_truth_odom, "' != 'true' and '",
                             enable_ekf, "' != 'true'"
                         ]
                     ),
@@ -314,6 +326,7 @@ def generate_launch_description():
                     PythonExpression(
                         [
                             "'", use_ground_truth_odom, "' != 'true' and '",
+                            use_gazebo_truth_odom, "' != 'true' and '",
                             enable_ekf, "' != 'true'"
                         ]
                     ),
@@ -323,6 +336,7 @@ def generate_launch_description():
                     PythonExpression(
                         [
                             "'", use_ground_truth_odom, "' != 'true' and '",
+                            use_gazebo_truth_odom, "' != 'true' and '",
                             enable_ekf, "' != 'true'"
                         ]
                     ),
@@ -351,11 +365,21 @@ def generate_launch_description():
                 'child_frame_id': 'ground_truth_base_link',
                 'publish_tf': False,
                 'publish_nav_odom': ParameterValue(
-                    PythonExpression(["'", use_ground_truth_odom, "' == 'true'"]),
+                    PythonExpression(
+                        [
+                            "'", use_ground_truth_odom, "' == 'true' and '",
+                            use_gazebo_truth_odom, "' != 'true'"
+                        ]
+                    ),
                     value_type=bool
                 ),
                 'publish_nav_tf': ParameterValue(
-                    PythonExpression(["'", use_ground_truth_odom, "' == 'true'"]),
+                    PythonExpression(
+                        [
+                            "'", use_ground_truth_odom, "' == 'true' and '",
+                            use_gazebo_truth_odom, "' != 'true'"
+                        ]
+                    ),
                     value_type=bool
                 ),
                 'nav_odom_topic': 'odom',
@@ -366,6 +390,51 @@ def generate_launch_description():
                 'verbose': False,
             }],
             condition=robot1_ground_truth_condition,
+            remappings=remappings
+        )
+
+        gazebo_truth_odom = Node(
+            package='quadropted_controller',
+            executable='GazeboTruthOdometryNode.py',
+            name='gazebo_truth_odometry',
+            namespace=namespace,
+            output='screen',
+            parameters=[{
+                'use_sim_time': use_sim_time,
+                'ground_truth_pose_topic': f'/model/{namespace}_my_bot/pose',
+                'model_frame_id': f'{namespace}_my_bot',
+                'world_frame_id': 'city_second',
+                'map_frame_id': 'map',
+                'odom_frame_id': 'odom',
+                'base_footprint_frame_id': 'base_footprint',
+                'base_link_frame_id': 'base_link',
+                'publish_rate': 100.0,
+                'zero_start': False,
+                'publish_odom_topics': True,
+                'publish_tf': True,
+                'publish_debug': True,
+            }],
+            condition=robot1_gazebo_truth_condition,
+            remappings=remappings
+        )
+
+        map_to_odom_static_tf = Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='map_to_odom_static_tf',
+            namespace=namespace,
+            arguments=[
+                '--x', '0.0',
+                '--y', '0.0',
+                '--z', '0.0',
+                '--roll', '0.0',
+                '--pitch', '0.0',
+                '--yaw', '0.0',
+                '--frame-id', 'map',
+                '--child-frame-id', 'odom',
+            ],
+            output='screen',
+            condition=robot1_gazebo_truth_condition,
             remappings=remappings
         )
 
@@ -407,7 +476,15 @@ def generate_launch_description():
 
         nav2_launch_file = os.path.join(pkg_path, 'launch', 'nav2', 'bringup_launch.py')
         map_yaml_file = os.path.join(pkg_path, 'maps', 'city_second_new.yaml')
-        params_file = os.path.join(pkg_path, 'config', 'nav2_params.yaml')
+        default_nav2_params_file = os.path.join(pkg_path, 'config', 'nav2_params.yaml')
+        gazebo_truth_nav2_params_file = os.path.join(pkg_path, 'config', 'nav2_params_gazebo_truth.yaml')
+        params_file = PythonExpression(
+            [
+                "'", gazebo_truth_nav2_params_file, "' if '",
+                use_gazebo_truth_odom, "' == 'true' else '",
+                default_nav2_params_file, "'"
+            ]
+        )
 
         message = f"{{header: {{frame_id: map}}, pose: {{pose: {{position: {{x: {robot['x_pose']}, y: {robot['y_pose']}, z: 0.1}}, orientation: {{x: 0.0, y: 0.0, z: 0.0, w: 1.0}}}}, }} }}"
 
@@ -507,6 +584,8 @@ def generate_launch_description():
             cmd_vel_pub,
             gui_control,
             ground_truth_odom,
+            gazebo_truth_odom,
+            map_to_odom_static_tf,
             odom,
             odometry_evaluator,
             start_robot_localization_cmd,

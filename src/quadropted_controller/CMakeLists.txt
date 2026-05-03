@@ -14,6 +14,7 @@ install(PROGRAMS
   scripts/QuadrupedOdometryNode.py
   scripts/FootContactEstimatorNode.py
   scripts/GroundTruthOdometryNode.py
+  scripts/GazeboTruthOdometryNode.py
   scripts/OdometryEvaluatorNode.py
   DESTINATION lib/${PROJECT_NAME}
 )
