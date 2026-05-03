@@ -18,14 +18,14 @@ class Robot:
         self.robot_id = robot_id  
 
         self.delta_x = self.body[0] * 0.5
-        self.delta_y = self.body[1] * 0.5 + self.legs[1]
+        self.delta_y = self.body[1] * 0.52 + self.legs[1]
         self.x_shift_front = 0.02
         self.x_shift_back = -0.0
-        self.default_height = 0.25
+        self.default_height = 0.30
 
         self.trotGaitController = TrotGaitController(
             self.node, self.default_stance,
-            stance_time=0.04, swing_time=0.18, time_step=0.02,
+            stance_time=0.04, swing_time=0.14, time_step=0.02,
             use_imu=imu
         )
 
@@ -48,12 +48,12 @@ class Robot:
         self.command_yaw_rate_target = np.zeros(3)
         self.body_z_target = 0.0
 
-        self.command_accel_limits = np.array([0.08, 0.05, 0.10])   # [m/s^2]
-        self.command_brake_limits = np.array([0.18, 0.10, 0.18])   # [m/s^2]
+        self.command_accel_limits = np.array([0.10, 0.05, 0.10])   # [m/s^2]
+        self.command_brake_limits = np.array([0.10, 0.05, 0.10])   # [m/s^2]
         self.yaw_accel_limits = np.array([0.50, 0.50, 1.20])       # [rad/s^2]
         self.yaw_brake_limits = np.array([0.80, 0.80, 1.80])       # [rad/s^2]
-        self.body_z_rise_rate = 0.18                               # [m/s]
-        self.body_z_fall_rate = 0.24                               # [m/s]
+        self.body_z_rise_rate = 0.6                               # [m/s]
+        self.body_z_fall_rate = 0.9                               # [m/s]
         self.velocity_deadband = 1e-4
         self.yaw_deadband = 1e-4
 
@@ -142,7 +142,7 @@ class Robot:
             self.command.trot_event = False
             self.command.crawl_event = False
 
-            self.body_z_target = -0.17
+            self.body_z_target = -0.23
             self.change_controller()
 
             response.success = True

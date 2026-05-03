@@ -146,9 +146,9 @@ class Go2GuiApp:
         speed = ttk.LabelFrame(main, text='Скорости', padding=8)
         speed.pack(fill='x', pady=(0, 10))
 
-        self._add_scale(speed, 0, 'Вперёд / назад', self.forward_speed, 0.05, 1.0)
-        self._add_scale(speed, 1, 'Шаг вбок', self.strafe_speed, 0.05, 1.2)
-        self._add_scale(speed, 2, 'Поворот', self.turn_speed, 0.05, 1.5)
+        self._add_scale(speed, 0, 'Вперёд / назад', self.forward_speed, 0.05, 2.0)
+        self._add_scale(speed, 1, 'Шаг вбок', self.strafe_speed, 0.05, 1.0)
+        self._add_scale(speed, 2, 'Поворот', self.turn_speed, 0.05, 2.5)
 
         controls = ttk.LabelFrame(main, text='Движение', padding=8)
         controls.pack(fill='x', pady=(0, 10))

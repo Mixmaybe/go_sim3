@@ -26,7 +26,7 @@ class TrotGaitController(GaitController):
 
         z_error_constant = 0.02  # This constant determines how fast we move
                                  # toward the goal in the z direction
-        z_leg_lift = 0.14  
+        z_leg_lift = 0.15  
 
         super().__init__(stance_time, swing_time, time_step, contact_phases, default_stance)
         
@@ -41,8 +41,8 @@ class TrotGaitController(GaitController):
         # Odometry must use foot_contacts_measured, not foot_contact.
         self.foot_contact_pub = self.node.create_publisher(RobotFootContact, "foot_contact", 10)
 
-        self.max_x_velocity = 0.035  # [m/s]
-        self.max_y_velocity = 0.012  # [m/s]
+        self.max_x_velocity = 0.07  # [m/s]
+        self.max_y_velocity = 0.03  # [m/s]
         self.max_yaw_rate = 0.5  # [rad/s]
 
         self.swingController = TrotSwingController(
@@ -172,7 +172,7 @@ class TrotSwingController:
         self.default_stance = default_stance
 
     def raibert_touchdown_location(self, leg_index, command):
-        scale_factor = 1.0  
+        scale_factor = 2.0  
         delta_pos_2d = command.velocity * self.phase_length * self.time_step * scale_factor
         delta_pos = np.array([delta_pos_2d[0], delta_pos_2d[1], 0])
 

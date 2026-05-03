@@ -57,8 +57,8 @@ class RobotVelocityHandler(Node):
         new_msg = RobotVelocity()
         new_msg.robot_id = 1
 
-        new_msg.cmd_vel.linear.x = self.multiply_and_limit(msg.linear.x, 0.035, -1.0, 1.0)
-        new_msg.cmd_vel.linear.y = self.multiply_and_limit(msg.linear.y, 0.012, -1.0, 1.0)
+        new_msg.cmd_vel.linear.x = self.multiply_and_limit(msg.linear.x, 0.07, -1.0, 2.0)
+        new_msg.cmd_vel.linear.y = self.multiply_and_limit(msg.linear.y, 0.03, -1.0, 1.0)
         new_msg.cmd_vel.linear.z = msg.linear.z
 
         new_msg.cmd_vel.angular.x = msg.angular.x
@@ -76,11 +76,11 @@ class RobotVelocityHandler(Node):
     def multiply_and_limit(self, value, scale_factor, min_limit, max_limit):
         # Обработка положительных и отрицательных значений отдельно
         if value > 0:
-            adjusted_value = value * 0.035
+            adjusted_value = value * 0.07
             scaled_value = scale_factor * (1 - math.exp(-100 * adjusted_value))
         else:
-            # Для отрицательных значений значение умножаем на -0.035
-            adjusted_value = (-value) * 0.035
+            # Для отрицательных значений значение умножаем на -0.105
+            adjusted_value = (-value) * 0.07
             scaled_value = -scale_factor * (1 - math.exp(-100 * adjusted_value))
         
         return self.limit_value(scaled_value, min_limit, max_limit)
