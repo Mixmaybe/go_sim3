@@ -119,8 +119,8 @@ class Go2GuiApp:
         self.root.protocol('WM_DELETE_WINDOW', self.on_close)
 
         self.forward_speed = tk.DoubleVar(value=0.50)
-        self.strafe_speed = tk.DoubleVar(value=0.90)
-        self.turn_speed = tk.DoubleVar(value=0.70)
+        self.strafe_speed = tk.DoubleVar(value=0.5)
+        self.turn_speed = tk.DoubleVar(value=1.25)
 
         self._build_ui()
         self._drain_logs()
@@ -148,7 +148,7 @@ class Go2GuiApp:
 
         self._add_scale(speed, 0, 'Вперёд / назад', self.forward_speed, 0.05, 2.0)
         self._add_scale(speed, 1, 'Шаг вбок', self.strafe_speed, 0.05, 1.0)
-        self._add_scale(speed, 2, 'Поворот', self.turn_speed, 0.05, 2.5)
+        self._add_scale(speed, 2, 'Поворот', self.turn_speed, 0.05, 4.0)
 
         controls = ttk.LabelFrame(main, text='Движение', padding=8)
         controls.pack(fill='x', pady=(0, 10))

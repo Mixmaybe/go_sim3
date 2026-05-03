@@ -50,8 +50,8 @@ class Robot:
 
         self.command_accel_limits = np.array([0.10, 0.05, 0.10])   # [m/s^2]
         self.command_brake_limits = np.array([0.10, 0.05, 0.10])   # [m/s^2]
-        self.yaw_accel_limits = np.array([0.50, 0.50, 1.20])       # [rad/s^2]
-        self.yaw_brake_limits = np.array([0.80, 0.80, 1.80])       # [rad/s^2]
+        self.yaw_accel_limits = np.array([0.50, 0.50, 4.80])       # [rad/s^2]
+        self.yaw_brake_limits = np.array([0.80, 0.80, 5.80])       # [rad/s^2]
         self.body_z_rise_rate = 0.6                               # [m/s]
         self.body_z_fall_rate = 0.9                               # [m/s]
         self.velocity_deadband = 1e-4
