@@ -3,6 +3,7 @@ install/
 log/
 
 .codex/
+.agents/
 
 __pycache__/
 *.pyc

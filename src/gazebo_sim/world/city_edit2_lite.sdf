@@ -14,9 +14,9 @@
       <render_engine>ogre2</render_engine>
     </plugin>
     <scene>
-      <ambient>0.779999971 0.779999971 0.779999971 1</ambient>
-      <background>0.779999971 0.879999995 0.970000029 1</background>
-      <shadows>true</shadows>
+      <ambient>0.699999988 0.699999988 0.699999988 1</ambient>
+      <background>0.649999976 0.75 0.850000024 1</background>
+      <shadows>false</shadows>
       <grid>false</grid>
     </scene>
     <atmosphere type='adiabatic'/>
@@ -10446,62 +10446,53 @@
     </model>
     <model name='Oak tree'>
       <static>true</static>
+      <pose>-3.0260199999999999 5.1699000000000002 0 0 0 0</pose>
       <link name='link'>
-        <collision name='collision'>
+        <collision name='footprint'>
+          <pose>0 0 0.050000000000000003 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/meshes/oak_tree.dae</uri>
-            </mesh>
+            <cylinder>
+              <radius>0.90000000000000002</radius>
+              <length>0.10000000000000001</length>
+            </cylinder>
           </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
         </collision>
-        <visual name='branch'>
+        <visual name='trunk'>
+          <pose>0 0 1.1000000000000001 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/meshes/oak_tree.dae</uri>
-              <submesh>
-                <name>Branch</name>
-              </submesh>
-            </mesh>
+            <cylinder>
+              <radius>0.17999999999999999</radius>
+              <length>2.2000000000000002</length>
+            </cylinder>
           </geometry>
           <material>
-            <double_sided>true</double_sided>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/textures/</uri>
-              <name>OakTree/Branch</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/textures/branch_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.379999995 0.219999999 0.109999999 1</ambient>
+            <diffuse>0.379999995 0.219999999 0.109999999 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <visual name='bark'>
+        <visual name='crown'>
+          <pose>0 0 2.6499999999999999 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/meshes/oak_tree.dae</uri>
-              <submesh>
-                <name>Bark</name>
-              </submesh>
-            </mesh>
+            <sphere>
+              <radius>1.25</radius>
+            </sphere>
           </geometry>
           <material>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/textures/</uri>
-              <name>OakTree/Bark</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/textures/bark_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.0799999982 0.419999987 0.119999997 1</ambient>
+            <diffuse>0.0799999982 0.419999987 0.119999997 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <pose>0 0 0 0 0 0</pose>
         <inertial>
           <pose>0 0 0 0 0 0</pose>
           <mass>1</mass>
@@ -10515,68 +10506,59 @@
           </inertia>
         </inertial>
         <enable_wind>false</enable_wind>
+        <pose>0 0 0 0 0 0</pose>
       </link>
-      <pose>-3.0260199999999999 5.1699000000000002 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
     <model name='Oak tree_0'>
       <static>true</static>
+      <pose>32.146799999999999 8.4817300000000007 0 0 0 0</pose>
       <link name='link'>
-        <collision name='collision'>
+        <collision name='footprint'>
+          <pose>0 0 0.050000000000000003 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/meshes/oak_tree.dae</uri>
-            </mesh>
+            <cylinder>
+              <radius>0.90000000000000002</radius>
+              <length>0.10000000000000001</length>
+            </cylinder>
           </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
         </collision>
-        <visual name='branch'>
+        <visual name='trunk'>
+          <pose>0 0 1.1000000000000001 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/meshes/oak_tree.dae</uri>
-              <submesh>
-                <name>Branch</name>
-              </submesh>
-            </mesh>
+            <cylinder>
+              <radius>0.17999999999999999</radius>
+              <length>2.2000000000000002</length>
+            </cylinder>
           </geometry>
           <material>
-            <double_sided>true</double_sided>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/textures/</uri>
-              <name>OakTree/Branch</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/textures/branch_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.379999995 0.219999999 0.109999999 1</ambient>
+            <diffuse>0.379999995 0.219999999 0.109999999 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <visual name='bark'>
+        <visual name='crown'>
+          <pose>0 0 2.6499999999999999 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/meshes/oak_tree.dae</uri>
-              <submesh>
-                <name>Bark</name>
-              </submesh>
-            </mesh>
+            <sphere>
+              <radius>1.25</radius>
+            </sphere>
           </geometry>
           <material>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/textures/</uri>
-              <name>OakTree/Bark</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/textures/bark_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.0799999982 0.419999987 0.119999997 1</ambient>
+            <diffuse>0.0799999982 0.419999987 0.119999997 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <pose>0 0 0 0 0 0</pose>
         <inertial>
           <pose>0 0 0 0 0 0</pose>
           <mass>1</mass>
@@ -10590,68 +10572,59 @@
           </inertia>
         </inertial>
         <enable_wind>false</enable_wind>
+        <pose>0 0 0 0 0 0</pose>
       </link>
-      <pose>32.146799999999999 8.4817300000000007 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
     <model name='Oak tree_1'>
       <static>true</static>
+      <pose>-27.205400000000001 23.9285 0 0 0 0</pose>
       <link name='link'>
-        <collision name='collision'>
+        <collision name='footprint'>
+          <pose>0 0 0.050000000000000003 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/meshes/oak_tree.dae</uri>
-            </mesh>
+            <cylinder>
+              <radius>0.90000000000000002</radius>
+              <length>0.10000000000000001</length>
+            </cylinder>
           </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
         </collision>
-        <visual name='branch'>
+        <visual name='trunk'>
+          <pose>0 0 1.1000000000000001 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/meshes/oak_tree.dae</uri>
-              <submesh>
-                <name>Branch</name>
-              </submesh>
-            </mesh>
+            <cylinder>
+              <radius>0.17999999999999999</radius>
+              <length>2.2000000000000002</length>
+            </cylinder>
           </geometry>
           <material>
-            <double_sided>true</double_sided>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/textures/</uri>
-              <name>OakTree/Branch</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/textures/branch_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.379999995 0.219999999 0.109999999 1</ambient>
+            <diffuse>0.379999995 0.219999999 0.109999999 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <visual name='bark'>
+        <visual name='crown'>
+          <pose>0 0 2.6499999999999999 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/meshes/oak_tree.dae</uri>
-              <submesh>
-                <name>Bark</name>
-              </submesh>
-            </mesh>
+            <sphere>
+              <radius>1.25</radius>
+            </sphere>
           </geometry>
           <material>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/textures/</uri>
-              <name>OakTree/Bark</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/textures/bark_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.0799999982 0.419999987 0.119999997 1</ambient>
+            <diffuse>0.0799999982 0.419999987 0.119999997 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <pose>0 0 0 0 0 0</pose>
         <inertial>
           <pose>0 0 0 0 0 0</pose>
           <mass>1</mass>
@@ -10665,68 +10638,59 @@
           </inertia>
         </inertial>
         <enable_wind>false</enable_wind>
+        <pose>0 0 0 0 0 0</pose>
       </link>
-      <pose>-27.205400000000001 23.9285 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
     <model name='Oak tree_2'>
       <static>true</static>
+      <pose>-21.791 -24.041399999999999 0 0 0 0</pose>
       <link name='link'>
-        <collision name='collision'>
+        <collision name='footprint'>
+          <pose>0 0 0.050000000000000003 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/meshes/oak_tree.dae</uri>
-            </mesh>
+            <cylinder>
+              <radius>0.90000000000000002</radius>
+              <length>0.10000000000000001</length>
+            </cylinder>
           </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
         </collision>
-        <visual name='branch'>
+        <visual name='trunk'>
+          <pose>0 0 1.1000000000000001 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/meshes/oak_tree.dae</uri>
-              <submesh>
-                <name>Branch</name>
-              </submesh>
-            </mesh>
+            <cylinder>
+              <radius>0.17999999999999999</radius>
+              <length>2.2000000000000002</length>
+            </cylinder>
           </geometry>
           <material>
-            <double_sided>true</double_sided>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/textures/</uri>
-              <name>OakTree/Branch</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/textures/branch_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.379999995 0.219999999 0.109999999 1</ambient>
+            <diffuse>0.379999995 0.219999999 0.109999999 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <visual name='bark'>
+        <visual name='crown'>
+          <pose>0 0 2.6499999999999999 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/meshes/oak_tree.dae</uri>
-              <submesh>
-                <name>Bark</name>
-              </submesh>
-            </mesh>
+            <sphere>
+              <radius>1.25</radius>
+            </sphere>
           </geometry>
           <material>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/textures/</uri>
-              <name>OakTree/Bark</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/textures/bark_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.0799999982 0.419999987 0.119999997 1</ambient>
+            <diffuse>0.0799999982 0.419999987 0.119999997 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <pose>0 0 0 0 0 0</pose>
         <inertial>
           <pose>0 0 0 0 0 0</pose>
           <mass>1</mass>
@@ -10740,68 +10704,60 @@
           </inertia>
         </inertial>
         <enable_wind>false</enable_wind>
+        <pose>0 0 0 0 0 0</pose>
       </link>
-      <pose>-21.791 -24.041399999999999 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
     <model name='Pine Tree'>
       <static>true</static>
+      <pose>-18.249400000000001 36.9146 0 0 0 0</pose>
       <link name='link'>
-        <collision name='collision'>
+        <collision name='footprint'>
+          <pose>0 0 0.050000000000000003 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-            </mesh>
+            <cylinder>
+              <radius>0.65000000000000002</radius>
+              <length>0.10000000000000001</length>
+            </cylinder>
           </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
         </collision>
-        <visual name='branch'>
+        <visual name='trunk'>
+          <pose>0 0 0.90000000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Branch</name>
-              </submesh>
-            </mesh>
+            <cylinder>
+              <radius>0.13</radius>
+              <length>1.8</length>
+            </cylinder>
           </geometry>
           <material>
-            <double_sided>true</double_sided>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Branch</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/branch_2_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.360000014 0.200000003 0.100000001 1</ambient>
+            <diffuse>0.360000014 0.200000003 0.100000001 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <visual name='bark'>
+        <visual name='crown'>
+          <pose>0 0 2.4500000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Bark</name>
-              </submesh>
-            </mesh>
+            <cone>
+              <radius>0.94999999999999996</radius>
+              <length>2.7000000000000002</length>
+            </cone>
           </geometry>
           <material>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Bark</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/bark_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.0299999993 0.340000004 0.109999999 1</ambient>
+            <diffuse>0.0299999993 0.340000004 0.109999999 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <pose>0 0 0 0 0 0</pose>
         <inertial>
           <pose>0 0 0 0 0 0</pose>
           <mass>1</mass>
@@ -10815,68 +10771,60 @@
           </inertia>
         </inertial>
         <enable_wind>false</enable_wind>
+        <pose>0 0 0 0 0 0</pose>
       </link>
-      <pose>-18.249400000000001 36.9146 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
     <model name='Pine Tree_0'>
       <static>true</static>
+      <pose>-18.005600000000001 33.315300000000001 0 0 0 0</pose>
       <link name='link'>
-        <collision name='collision'>
+        <collision name='footprint'>
+          <pose>0 0 0.050000000000000003 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-            </mesh>
+            <cylinder>
+              <radius>0.65000000000000002</radius>
+              <length>0.10000000000000001</length>
+            </cylinder>
           </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
         </collision>
-        <visual name='branch'>
+        <visual name='trunk'>
+          <pose>0 0 0.90000000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Branch</name>
-              </submesh>
-            </mesh>
+            <cylinder>
+              <radius>0.13</radius>
+              <length>1.8</length>
+            </cylinder>
           </geometry>
           <material>
-            <double_sided>true</double_sided>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Branch</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/branch_2_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.360000014 0.200000003 0.100000001 1</ambient>
+            <diffuse>0.360000014 0.200000003 0.100000001 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <visual name='bark'>
+        <visual name='crown'>
+          <pose>0 0 2.4500000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Bark</name>
-              </submesh>
-            </mesh>
+            <cone>
+              <radius>0.94999999999999996</radius>
+              <length>2.7000000000000002</length>
+            </cone>
           </geometry>
           <material>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Bark</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/bark_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.0299999993 0.340000004 0.109999999 1</ambient>
+            <diffuse>0.0299999993 0.340000004 0.109999999 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <pose>0 0 0 0 0 0</pose>
         <inertial>
           <pose>0 0 0 0 0 0</pose>
           <mass>1</mass>
@@ -10890,68 +10838,60 @@
           </inertia>
         </inertial>
         <enable_wind>false</enable_wind>
+        <pose>0 0 0 0 0 0</pose>
       </link>
-      <pose>-18.005600000000001 33.315300000000001 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
     <model name='Pine Tree_1'>
       <static>true</static>
+      <pose>-17.865100000000002 30.0685 0 0 0 0</pose>
       <link name='link'>
-        <collision name='collision'>
+        <collision name='footprint'>
+          <pose>0 0 0.050000000000000003 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-            </mesh>
+            <cylinder>
+              <radius>0.65000000000000002</radius>
+              <length>0.10000000000000001</length>
+            </cylinder>
           </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
         </collision>
-        <visual name='branch'>
+        <visual name='trunk'>
+          <pose>0 0 0.90000000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Branch</name>
-              </submesh>
-            </mesh>
+            <cylinder>
+              <radius>0.13</radius>
+              <length>1.8</length>
+            </cylinder>
           </geometry>
           <material>
-            <double_sided>true</double_sided>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Branch</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/branch_2_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.360000014 0.200000003 0.100000001 1</ambient>
+            <diffuse>0.360000014 0.200000003 0.100000001 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <visual name='bark'>
+        <visual name='crown'>
+          <pose>0 0 2.4500000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Bark</name>
-              </submesh>
-            </mesh>
+            <cone>
+              <radius>0.94999999999999996</radius>
+              <length>2.7000000000000002</length>
+            </cone>
           </geometry>
           <material>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Bark</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/bark_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.0299999993 0.340000004 0.109999999 1</ambient>
+            <diffuse>0.0299999993 0.340000004 0.109999999 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <pose>0 0 0 0 0 0</pose>
         <inertial>
           <pose>0 0 0 0 0 0</pose>
           <mass>1</mass>
@@ -10965,68 +10905,60 @@
           </inertia>
         </inertial>
         <enable_wind>false</enable_wind>
+        <pose>0 0 0 0 0 0</pose>
       </link>
-      <pose>-17.865100000000002 30.0685 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
     <model name='Pine Tree_2'>
       <static>true</static>
+      <pose>-6.4425299999999996 37.668399999999998 0 0 0 0</pose>
       <link name='link'>
-        <collision name='collision'>
+        <collision name='footprint'>
+          <pose>0 0 0.050000000000000003 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-            </mesh>
+            <cylinder>
+              <radius>0.65000000000000002</radius>
+              <length>0.10000000000000001</length>
+            </cylinder>
           </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
         </collision>
-        <visual name='branch'>
+        <visual name='trunk'>
+          <pose>0 0 0.90000000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Branch</name>
-              </submesh>
-            </mesh>
+            <cylinder>
+              <radius>0.13</radius>
+              <length>1.8</length>
+            </cylinder>
           </geometry>
           <material>
-            <double_sided>true</double_sided>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Branch</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/branch_2_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.360000014 0.200000003 0.100000001 1</ambient>
+            <diffuse>0.360000014 0.200000003 0.100000001 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <visual name='bark'>
+        <visual name='crown'>
+          <pose>0 0 2.4500000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Bark</name>
-              </submesh>
-            </mesh>
+            <cone>
+              <radius>0.94999999999999996</radius>
+              <length>2.7000000000000002</length>
+            </cone>
           </geometry>
           <material>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Bark</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/bark_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.0299999993 0.340000004 0.109999999 1</ambient>
+            <diffuse>0.0299999993 0.340000004 0.109999999 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <pose>0 0 0 0 0 0</pose>
         <inertial>
           <pose>0 0 0 0 0 0</pose>
           <mass>1</mass>
@@ -11040,68 +10972,60 @@
           </inertia>
         </inertial>
         <enable_wind>false</enable_wind>
+        <pose>0 0 0 0 0 0</pose>
       </link>
-      <pose>-6.4425299999999996 37.668399999999998 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
     <model name='Pine Tree_3'>
       <static>true</static>
+      <pose>-6.7212500000000004 33.771900000000002 0 0 0 0</pose>
       <link name='link'>
-        <collision name='collision'>
+        <collision name='footprint'>
+          <pose>0 0 0.050000000000000003 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-            </mesh>
+            <cylinder>
+              <radius>0.65000000000000002</radius>
+              <length>0.10000000000000001</length>
+            </cylinder>
           </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
         </collision>
-        <visual name='branch'>
+        <visual name='trunk'>
+          <pose>0 0 0.90000000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Branch</name>
-              </submesh>
-            </mesh>
+            <cylinder>
+              <radius>0.13</radius>
+              <length>1.8</length>
+            </cylinder>
           </geometry>
           <material>
-            <double_sided>true</double_sided>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Branch</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/branch_2_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.360000014 0.200000003 0.100000001 1</ambient>
+            <diffuse>0.360000014 0.200000003 0.100000001 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <visual name='bark'>
+        <visual name='crown'>
+          <pose>0 0 2.4500000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Bark</name>
-              </submesh>
-            </mesh>
+            <cone>
+              <radius>0.94999999999999996</radius>
+              <length>2.7000000000000002</length>
+            </cone>
           </geometry>
           <material>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Bark</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/bark_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.0299999993 0.340000004 0.109999999 1</ambient>
+            <diffuse>0.0299999993 0.340000004 0.109999999 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <pose>0 0 0 0 0 0</pose>
         <inertial>
           <pose>0 0 0 0 0 0</pose>
           <mass>1</mass>
@@ -11115,68 +11039,60 @@
           </inertia>
         </inertial>
         <enable_wind>false</enable_wind>
+        <pose>0 0 0 0 0 0</pose>
       </link>
-      <pose>-6.7212500000000004 33.771900000000002 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
     <model name='Pine Tree_4'>
       <static>true</static>
+      <pose>-6.8345700000000003 30.302499999999998 0 0 0 0</pose>
       <link name='link'>
-        <collision name='collision'>
+        <collision name='footprint'>
+          <pose>0 0 0.050000000000000003 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-            </mesh>
+            <cylinder>
+              <radius>0.65000000000000002</radius>
+              <length>0.10000000000000001</length>
+            </cylinder>
           </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
         </collision>
-        <visual name='branch'>
+        <visual name='trunk'>
+          <pose>0 0 0.90000000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Branch</name>
-              </submesh>
-            </mesh>
+            <cylinder>
+              <radius>0.13</radius>
+              <length>1.8</length>
+            </cylinder>
           </geometry>
           <material>
-            <double_sided>true</double_sided>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Branch</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/branch_2_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.360000014 0.200000003 0.100000001 1</ambient>
+            <diffuse>0.360000014 0.200000003 0.100000001 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <visual name='bark'>
+        <visual name='crown'>
+          <pose>0 0 2.4500000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Bark</name>
-              </submesh>
-            </mesh>
+            <cone>
+              <radius>0.94999999999999996</radius>
+              <length>2.7000000000000002</length>
+            </cone>
           </geometry>
           <material>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Bark</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/bark_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.0299999993 0.340000004 0.109999999 1</ambient>
+            <diffuse>0.0299999993 0.340000004 0.109999999 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <pose>0 0 0 0 0 0</pose>
         <inertial>
           <pose>0 0 0 0 0 0</pose>
           <mass>1</mass>
@@ -11190,68 +11106,60 @@
           </inertia>
         </inertial>
         <enable_wind>false</enable_wind>
+        <pose>0 0 0 0 0 0</pose>
       </link>
-      <pose>-6.8345700000000003 30.302499999999998 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
     <model name='Pine Tree_5'>
       <static>true</static>
+      <pose>-6.8132099999999998 27.2591 0 0 0 0</pose>
       <link name='link'>
-        <collision name='collision'>
+        <collision name='footprint'>
+          <pose>0 0 0.050000000000000003 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-            </mesh>
+            <cylinder>
+              <radius>0.65000000000000002</radius>
+              <length>0.10000000000000001</length>
+            </cylinder>
           </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
         </collision>
-        <visual name='branch'>
+        <visual name='trunk'>
+          <pose>0 0 0.90000000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Branch</name>
-              </submesh>
-            </mesh>
+            <cylinder>
+              <radius>0.13</radius>
+              <length>1.8</length>
+            </cylinder>
           </geometry>
           <material>
-            <double_sided>true</double_sided>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Branch</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/branch_2_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.360000014 0.200000003 0.100000001 1</ambient>
+            <diffuse>0.360000014 0.200000003 0.100000001 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <visual name='bark'>
+        <visual name='crown'>
+          <pose>0 0 2.4500000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Bark</name>
-              </submesh>
-            </mesh>
+            <cone>
+              <radius>0.94999999999999996</radius>
+              <length>2.7000000000000002</length>
+            </cone>
           </geometry>
           <material>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Bark</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/bark_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.0299999993 0.340000004 0.109999999 1</ambient>
+            <diffuse>0.0299999993 0.340000004 0.109999999 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <pose>0 0 0 0 0 0</pose>
         <inertial>
           <pose>0 0 0 0 0 0</pose>
           <mass>1</mass>
@@ -11265,68 +11173,60 @@
           </inertia>
         </inertial>
         <enable_wind>false</enable_wind>
+        <pose>0 0 0 0 0 0</pose>
       </link>
-      <pose>-6.8132099999999998 27.2591 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
     <model name='Pine Tree_6'>
       <static>true</static>
+      <pose>-18.019400000000001 26.7318 0 0 0 0</pose>
       <link name='link'>
-        <collision name='collision'>
+        <collision name='footprint'>
+          <pose>0 0 0.050000000000000003 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-            </mesh>
+            <cylinder>
+              <radius>0.65000000000000002</radius>
+              <length>0.10000000000000001</length>
+            </cylinder>
           </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
         </collision>
-        <visual name='branch'>
+        <visual name='trunk'>
+          <pose>0 0 0.90000000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Branch</name>
-              </submesh>
-            </mesh>
+            <cylinder>
+              <radius>0.13</radius>
+              <length>1.8</length>
+            </cylinder>
           </geometry>
           <material>
-            <double_sided>true</double_sided>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Branch</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/branch_2_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.360000014 0.200000003 0.100000001 1</ambient>
+            <diffuse>0.360000014 0.200000003 0.100000001 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <visual name='bark'>
+        <visual name='crown'>
+          <pose>0 0 2.4500000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Bark</name>
-              </submesh>
-            </mesh>
+            <cone>
+              <radius>0.94999999999999996</radius>
+              <length>2.7000000000000002</length>
+            </cone>
           </geometry>
           <material>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Bark</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/bark_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.0299999993 0.340000004 0.109999999 1</ambient>
+            <diffuse>0.0299999993 0.340000004 0.109999999 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <pose>0 0 0 0 0 0</pose>
         <inertial>
           <pose>0 0 0 0 0 0</pose>
           <mass>1</mass>
@@ -11340,68 +11240,60 @@
           </inertia>
         </inertial>
         <enable_wind>false</enable_wind>
+        <pose>0 0 0 0 0 0</pose>
       </link>
-      <pose>-18.019400000000001 26.7318 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
     <model name='Pine Tree_7'>
       <static>true</static>
+      <pose>36.966000000000001 22.148700000000002 0 0 0 0</pose>
       <link name='link'>
-        <collision name='collision'>
+        <collision name='footprint'>
+          <pose>0 0 0.050000000000000003 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-            </mesh>
+            <cylinder>
+              <radius>0.65000000000000002</radius>
+              <length>0.10000000000000001</length>
+            </cylinder>
           </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
         </collision>
-        <visual name='branch'>
+        <visual name='trunk'>
+          <pose>0 0 0.90000000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Branch</name>
-              </submesh>
-            </mesh>
+            <cylinder>
+              <radius>0.13</radius>
+              <length>1.8</length>
+            </cylinder>
           </geometry>
           <material>
-            <double_sided>true</double_sided>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Branch</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/branch_2_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.360000014 0.200000003 0.100000001 1</ambient>
+            <diffuse>0.360000014 0.200000003 0.100000001 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <visual name='bark'>
+        <visual name='crown'>
+          <pose>0 0 2.4500000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Bark</name>
-              </submesh>
-            </mesh>
+            <cone>
+              <radius>0.94999999999999996</radius>
+              <length>2.7000000000000002</length>
+            </cone>
           </geometry>
           <material>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Bark</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/bark_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.0299999993 0.340000004 0.109999999 1</ambient>
+            <diffuse>0.0299999993 0.340000004 0.109999999 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <pose>0 0 0 0 0 0</pose>
         <inertial>
           <pose>0 0 0 0 0 0</pose>
           <mass>1</mass>
@@ -11415,68 +11307,60 @@
           </inertia>
         </inertial>
         <enable_wind>false</enable_wind>
+        <pose>0 0 0 0 0 0</pose>
       </link>
-      <pose>36.966000000000001 22.148700000000002 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
     <model name='Pine Tree_8'>
       <static>true</static>
+      <pose>10.0456 32.648699999999998 0 0 0 0</pose>
       <link name='link'>
-        <collision name='collision'>
+        <collision name='footprint'>
+          <pose>0 0 0.050000000000000003 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-            </mesh>
+            <cylinder>
+              <radius>0.65000000000000002</radius>
+              <length>0.10000000000000001</length>
+            </cylinder>
           </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
         </collision>
-        <visual name='branch'>
+        <visual name='trunk'>
+          <pose>0 0 0.90000000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Branch</name>
-              </submesh>
-            </mesh>
+            <cylinder>
+              <radius>0.13</radius>
+              <length>1.8</length>
+            </cylinder>
           </geometry>
           <material>
-            <double_sided>true</double_sided>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Branch</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/branch_2_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.360000014 0.200000003 0.100000001 1</ambient>
+            <diffuse>0.360000014 0.200000003 0.100000001 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <visual name='bark'>
+        <visual name='crown'>
+          <pose>0 0 2.4500000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Bark</name>
-              </submesh>
-            </mesh>
+            <cone>
+              <radius>0.94999999999999996</radius>
+              <length>2.7000000000000002</length>
+            </cone>
           </geometry>
           <material>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Bark</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/bark_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.0299999993 0.340000004 0.109999999 1</ambient>
+            <diffuse>0.0299999993 0.340000004 0.109999999 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <pose>0 0 0 0 0 0</pose>
         <inertial>
           <pose>0 0 0 0 0 0</pose>
           <mass>1</mass>
@@ -11490,68 +11374,60 @@
           </inertia>
         </inertial>
         <enable_wind>false</enable_wind>
+        <pose>0 0 0 0 0 0</pose>
       </link>
-      <pose>10.0456 32.648699999999998 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
     <model name='Pine Tree_9'>
       <static>true</static>
+      <pose>23.437200000000001 3.6228500000000001 0 0 0 0</pose>
       <link name='link'>
-        <collision name='collision'>
+        <collision name='footprint'>
+          <pose>0 0 0.050000000000000003 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-            </mesh>
+            <cylinder>
+              <radius>0.65000000000000002</radius>
+              <length>0.10000000000000001</length>
+            </cylinder>
           </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
         </collision>
-        <visual name='branch'>
+        <visual name='trunk'>
+          <pose>0 0 0.90000000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Branch</name>
-              </submesh>
-            </mesh>
+            <cylinder>
+              <radius>0.13</radius>
+              <length>1.8</length>
+            </cylinder>
           </geometry>
           <material>
-            <double_sided>true</double_sided>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Branch</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/branch_2_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.360000014 0.200000003 0.100000001 1</ambient>
+            <diffuse>0.360000014 0.200000003 0.100000001 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <visual name='bark'>
+        <visual name='crown'>
+          <pose>0 0 2.4500000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Bark</name>
-              </submesh>
-            </mesh>
+            <cone>
+              <radius>0.94999999999999996</radius>
+              <length>2.7000000000000002</length>
+            </cone>
           </geometry>
           <material>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Bark</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/bark_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.0299999993 0.340000004 0.109999999 1</ambient>
+            <diffuse>0.0299999993 0.340000004 0.109999999 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <pose>0 0 0 0 0 0</pose>
         <inertial>
           <pose>0 0 0 0 0 0</pose>
           <mass>1</mass>
@@ -11565,68 +11441,60 @@
           </inertia>
         </inertial>
         <enable_wind>false</enable_wind>
+        <pose>0 0 0 0 0 0</pose>
       </link>
-      <pose>23.437200000000001 3.6228500000000001 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
     <model name='Pine Tree_10'>
       <static>true</static>
+      <pose>24.3462 -5.4889299999999999 0 0 0 0</pose>
       <link name='link'>
-        <collision name='collision'>
+        <collision name='footprint'>
+          <pose>0 0 0.050000000000000003 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-            </mesh>
+            <cylinder>
+              <radius>0.65000000000000002</radius>
+              <length>0.10000000000000001</length>
+            </cylinder>
           </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
         </collision>
-        <visual name='branch'>
+        <visual name='trunk'>
+          <pose>0 0 0.90000000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Branch</name>
-              </submesh>
-            </mesh>
+            <cylinder>
+              <radius>0.13</radius>
+              <length>1.8</length>
+            </cylinder>
           </geometry>
           <material>
-            <double_sided>true</double_sided>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Branch</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/branch_2_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.360000014 0.200000003 0.100000001 1</ambient>
+            <diffuse>0.360000014 0.200000003 0.100000001 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <visual name='bark'>
+        <visual name='crown'>
+          <pose>0 0 2.4500000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Bark</name>
-              </submesh>
-            </mesh>
+            <cone>
+              <radius>0.94999999999999996</radius>
+              <length>2.7000000000000002</length>
+            </cone>
           </geometry>
           <material>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Bark</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/bark_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.0299999993 0.340000004 0.109999999 1</ambient>
+            <diffuse>0.0299999993 0.340000004 0.109999999 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <pose>0 0 0 0 0 0</pose>
         <inertial>
           <pose>0 0 0 0 0 0</pose>
           <mass>1</mass>
@@ -11640,68 +11508,60 @@
           </inertia>
         </inertial>
         <enable_wind>false</enable_wind>
+        <pose>0 0 0 0 0 0</pose>
       </link>
-      <pose>24.3462 -5.4889299999999999 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
     <model name='Pine Tree_11'>
       <static>true</static>
+      <pose>-18.971399999999999 -1.4216200000000001 0 0 0 0</pose>
       <link name='link'>
-        <collision name='collision'>
+        <collision name='footprint'>
+          <pose>0 0 0.050000000000000003 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-            </mesh>
+            <cylinder>
+              <radius>0.65000000000000002</radius>
+              <length>0.10000000000000001</length>
+            </cylinder>
           </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
         </collision>
-        <visual name='branch'>
+        <visual name='trunk'>
+          <pose>0 0 0.90000000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Branch</name>
-              </submesh>
-            </mesh>
+            <cylinder>
+              <radius>0.13</radius>
+              <length>1.8</length>
+            </cylinder>
           </geometry>
           <material>
-            <double_sided>true</double_sided>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Branch</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/branch_2_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.360000014 0.200000003 0.100000001 1</ambient>
+            <diffuse>0.360000014 0.200000003 0.100000001 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <visual name='bark'>
+        <visual name='crown'>
+          <pose>0 0 2.4500000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Bark</name>
-              </submesh>
-            </mesh>
+            <cone>
+              <radius>0.94999999999999996</radius>
+              <length>2.7000000000000002</length>
+            </cone>
           </geometry>
           <material>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Bark</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/bark_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.0299999993 0.340000004 0.109999999 1</ambient>
+            <diffuse>0.0299999993 0.340000004 0.109999999 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <pose>0 0 0 0 0 0</pose>
         <inertial>
           <pose>0 0 0 0 0 0</pose>
           <mass>1</mass>
@@ -11715,68 +11575,59 @@
           </inertia>
         </inertial>
         <enable_wind>false</enable_wind>
+        <pose>0 0 0 0 0 0</pose>
       </link>
-      <pose>-18.971399999999999 -1.4216200000000001 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
     <model name='Oak tree_3'>
       <static>true</static>
+      <pose>3.7745000000000002 -5.8038400000000001 0 0 0 0</pose>
       <link name='link'>
-        <collision name='collision'>
+        <collision name='footprint'>
+          <pose>0 0 0.050000000000000003 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/meshes/oak_tree.dae</uri>
-            </mesh>
+            <cylinder>
+              <radius>0.90000000000000002</radius>
+              <length>0.10000000000000001</length>
+            </cylinder>
           </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
         </collision>
-        <visual name='branch'>
+        <visual name='trunk'>
+          <pose>0 0 1.1000000000000001 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/meshes/oak_tree.dae</uri>
-              <submesh>
-                <name>Branch</name>
-              </submesh>
-            </mesh>
+            <cylinder>
+              <radius>0.17999999999999999</radius>
+              <length>2.2000000000000002</length>
+            </cylinder>
           </geometry>
           <material>
-            <double_sided>true</double_sided>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/textures/</uri>
-              <name>OakTree/Branch</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/textures/branch_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.379999995 0.219999999 0.109999999 1</ambient>
+            <diffuse>0.379999995 0.219999999 0.109999999 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <visual name='bark'>
+        <visual name='crown'>
+          <pose>0 0 2.6499999999999999 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/meshes/oak_tree.dae</uri>
-              <submesh>
-                <name>Bark</name>
-              </submesh>
-            </mesh>
+            <sphere>
+              <radius>1.25</radius>
+            </sphere>
           </geometry>
           <material>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/textures/</uri>
-              <name>OakTree/Bark</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/textures/bark_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.0799999982 0.419999987 0.119999997 1</ambient>
+            <diffuse>0.0799999982 0.419999987 0.119999997 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <pose>0 0 0 0 0 0</pose>
         <inertial>
           <pose>0 0 0 0 0 0</pose>
           <mass>1</mass>
@@ -11790,68 +11641,59 @@
           </inertia>
         </inertial>
         <enable_wind>false</enable_wind>
+        <pose>0 0 0 0 0 0</pose>
       </link>
-      <pose>3.7745000000000002 -5.8038400000000001 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
     <model name='Oak tree_4'>
       <static>true</static>
+      <pose>-2.92401 -4.6859599999999997 0 0 0 0</pose>
       <link name='link'>
-        <collision name='collision'>
+        <collision name='footprint'>
+          <pose>0 0 0.050000000000000003 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/meshes/oak_tree.dae</uri>
-            </mesh>
+            <cylinder>
+              <radius>0.90000000000000002</radius>
+              <length>0.10000000000000001</length>
+            </cylinder>
           </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
         </collision>
-        <visual name='branch'>
+        <visual name='trunk'>
+          <pose>0 0 1.1000000000000001 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/meshes/oak_tree.dae</uri>
-              <submesh>
-                <name>Branch</name>
-              </submesh>
-            </mesh>
+            <cylinder>
+              <radius>0.17999999999999999</radius>
+              <length>2.2000000000000002</length>
+            </cylinder>
           </geometry>
           <material>
-            <double_sided>true</double_sided>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/textures/</uri>
-              <name>OakTree/Branch</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/textures/branch_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.379999995 0.219999999 0.109999999 1</ambient>
+            <diffuse>0.379999995 0.219999999 0.109999999 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <visual name='bark'>
+        <visual name='crown'>
+          <pose>0 0 2.6499999999999999 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/meshes/oak_tree.dae</uri>
-              <submesh>
-                <name>Bark</name>
-              </submesh>
-            </mesh>
+            <sphere>
+              <radius>1.25</radius>
+            </sphere>
           </geometry>
           <material>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/textures/</uri>
-              <name>OakTree/Bark</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/oak tree/7/files/materials/textures/bark_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.0799999982 0.419999987 0.119999997 1</ambient>
+            <diffuse>0.0799999982 0.419999987 0.119999997 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <pose>0 0 0 0 0 0</pose>
         <inertial>
           <pose>0 0 0 0 0 0</pose>
           <mass>1</mass>
@@ -11865,68 +11707,60 @@
           </inertia>
         </inertial>
         <enable_wind>false</enable_wind>
+        <pose>0 0 0 0 0 0</pose>
       </link>
-      <pose>-2.92401 -4.6859599999999997 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
     <model name='Pine Tree_12'>
       <static>true</static>
+      <pose>9.2489500000000007 0.51215299999999997 0 0 0 0</pose>
       <link name='link'>
-        <collision name='collision'>
+        <collision name='footprint'>
+          <pose>0 0 0.050000000000000003 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-            </mesh>
+            <cylinder>
+              <radius>0.65000000000000002</radius>
+              <length>0.10000000000000001</length>
+            </cylinder>
           </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
         </collision>
-        <visual name='branch'>
+        <visual name='trunk'>
+          <pose>0 0 0.90000000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Branch</name>
-              </submesh>
-            </mesh>
+            <cylinder>
+              <radius>0.13</radius>
+              <length>1.8</length>
+            </cylinder>
           </geometry>
           <material>
-            <double_sided>true</double_sided>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Branch</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/branch_2_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.360000014 0.200000003 0.100000001 1</ambient>
+            <diffuse>0.360000014 0.200000003 0.100000001 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <visual name='bark'>
+        <visual name='crown'>
+          <pose>0 0 2.4500000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Bark</name>
-              </submesh>
-            </mesh>
+            <cone>
+              <radius>0.94999999999999996</radius>
+              <length>2.7000000000000002</length>
+            </cone>
           </geometry>
           <material>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Bark</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/bark_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.0299999993 0.340000004 0.109999999 1</ambient>
+            <diffuse>0.0299999993 0.340000004 0.109999999 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <pose>0 0 0 0 0 0</pose>
         <inertial>
           <pose>0 0 0 0 0 0</pose>
           <mass>1</mass>
@@ -11940,68 +11774,60 @@
           </inertia>
         </inertial>
         <enable_wind>false</enable_wind>
+        <pose>0 0 0 0 0 0</pose>
       </link>
-      <pose>9.2489500000000007 0.51215299999999997 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
     <model name='Pine Tree_13'>
       <static>true</static>
+      <pose>24.1953 -0.55246899999999999 0 0 0 0</pose>
       <link name='link'>
-        <collision name='collision'>
+        <collision name='footprint'>
+          <pose>0 0 0.050000000000000003 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-            </mesh>
+            <cylinder>
+              <radius>0.65000000000000002</radius>
+              <length>0.10000000000000001</length>
+            </cylinder>
           </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
         </collision>
-        <visual name='branch'>
+        <visual name='trunk'>
+          <pose>0 0 0.90000000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Branch</name>
-              </submesh>
-            </mesh>
+            <cylinder>
+              <radius>0.13</radius>
+              <length>1.8</length>
+            </cylinder>
           </geometry>
           <material>
-            <double_sided>true</double_sided>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Branch</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/branch_2_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.360000014 0.200000003 0.100000001 1</ambient>
+            <diffuse>0.360000014 0.200000003 0.100000001 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <visual name='bark'>
+        <visual name='crown'>
+          <pose>0 0 2.4500000000000002 0 0 0</pose>
           <geometry>
-            <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/meshes/pine_tree.dae</uri>
-              <submesh>
-                <name>Bark</name>
-              </submesh>
-            </mesh>
+            <cone>
+              <radius>0.94999999999999996</radius>
+              <length>2.7000000000000002</length>
+            </cone>
           </geometry>
           <material>
-            <diffuse>1 1 1 1</diffuse>
-            <script>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/scripts/</uri>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/</uri>
-              <name>PineTree/Bark</name>
-            </script>
-            <pbr>
-              <metal>
-                <albedo_map>https://fuel.gazebosim.org/1.0/openrobotics/models/pine tree/6/files/materials/textures/bark_diffuse.png</albedo_map>
-              </metal>
-            </pbr>
+            <ambient>0.0299999993 0.340000004 0.109999999 1</ambient>
+            <diffuse>0.0299999993 0.340000004 0.109999999 1</diffuse>
+            <specular>0.119999997 0.119999997 0.119999997 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
-        <pose>0 0 0 0 0 0</pose>
         <inertial>
           <pose>0 0 0 0 0 0</pose>
           <mass>1</mass>
@@ -12015,8 +11841,8 @@
           </inertia>
         </inertial>
         <enable_wind>false</enable_wind>
+        <pose>0 0 0 0 0 0</pose>
       </link>
-      <pose>24.1953 -0.55246899999999999 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
     <model name='simple_traffic_light_red_west_1'>
@@ -12291,18 +12117,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='red_glow' type='point'>
-        <pose>0 0.28 1.78 0 0 0</pose>
-        <diffuse>1 0.02 0.02 1</diffuse>
-        <specular>1 0.02 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_red_south_1'>
       <static>true</static>
@@ -12576,18 +12390,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='red_glow' type='point'>
-        <pose>0 0.28 1.78 0 0 0</pose>
-        <diffuse>1 0.02 0.02 1</diffuse>
-        <specular>1 0.02 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_red_north_1'>
       <static>true</static>
@@ -12861,18 +12663,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='red_glow' type='point'>
-        <pose>0 0.28 1.78 0 0 0</pose>
-        <diffuse>1 0.02 0.02 1</diffuse>
-        <specular>1 0.02 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_green_south_1_1'>
       <static>true</static>
@@ -13146,18 +12936,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='green_glow' type='point'>
-        <pose>0 0.28 1.32 0 0 0</pose>
-        <diffuse>0.02 1 0.02 1</diffuse>
-        <specular>0.02 1 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_red_east_1'>
       <static>true</static>
@@ -13431,18 +13209,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='red_glow' type='point'>
-        <pose>0 0.28 1.78 0 0 0</pose>
-        <diffuse>1 0.02 0.02 1</diffuse>
-        <specular>1 0.02 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_green_north_1_1'>
       <static>true</static>
@@ -13716,18 +13482,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='green_glow' type='point'>
-        <pose>0 0.28 1.32 0 0 0</pose>
-        <diffuse>0.02 1 0.02 1</diffuse>
-        <specular>0.02 1 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_green_east_1_1'>
       <static>true</static>
@@ -14001,18 +13755,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='green_glow' type='point'>
-        <pose>0 0.28 1.32 0 0 0</pose>
-        <diffuse>0.02 1 0.02 1</diffuse>
-        <specular>0.02 1 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_green_west_1_1'>
       <static>true</static>
@@ -14286,18 +14028,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='green_glow' type='point'>
-        <pose>0 0.28 1.32 0 0 0</pose>
-        <diffuse>0.02 1 0.02 1</diffuse>
-        <specular>0.02 1 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_red_east_2'>
       <static>true</static>
@@ -14571,18 +14301,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='red_glow' type='point'>
-        <pose>0 0.28 1.78 0 0 0</pose>
-        <diffuse>1 0.02 0.02 1</diffuse>
-        <specular>1 0.02 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_red_east_3'>
       <static>true</static>
@@ -14856,18 +14574,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='red_glow' type='point'>
-        <pose>0 0.28 1.78 0 0 0</pose>
-        <diffuse>1 0.02 0.02 1</diffuse>
-        <specular>1 0.02 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_red_west_2'>
       <static>true</static>
@@ -15141,18 +14847,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='red_glow' type='point'>
-        <pose>0 0.28 1.78 0 0 0</pose>
-        <diffuse>1 0.02 0.02 1</diffuse>
-        <specular>1 0.02 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_red_west_3'>
       <static>true</static>
@@ -15426,18 +15120,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='red_glow' type='point'>
-        <pose>0 0.28 1.78 0 0 0</pose>
-        <diffuse>1 0.02 0.02 1</diffuse>
-        <specular>1 0.02 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_green_north_1_2'>
       <static>true</static>
@@ -15711,18 +15393,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='green_glow' type='point'>
-        <pose>0 0.28 1.32 0 0 0</pose>
-        <diffuse>0.02 1 0.02 1</diffuse>
-        <specular>0.02 1 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_green_north_1_3'>
       <static>true</static>
@@ -15996,18 +15666,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='green_glow' type='point'>
-        <pose>0 0.28 1.32 0 0 0</pose>
-        <diffuse>0.02 1 0.02 1</diffuse>
-        <specular>0.02 1 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_green_south_1_2'>
       <static>true</static>
@@ -16281,18 +15939,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='green_glow' type='point'>
-        <pose>0 0.28 1.32 0 0 0</pose>
-        <diffuse>0.02 1 0.02 1</diffuse>
-        <specular>0.02 1 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_green_south_1_3'>
       <static>true</static>
@@ -16566,18 +16212,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='green_glow' type='point'>
-        <pose>0 0.28 1.32 0 0 0</pose>
-        <diffuse>0.02 1 0.02 1</diffuse>
-        <specular>0.02 1 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_red_north_2'>
       <static>true</static>
@@ -16851,18 +16485,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='red_glow' type='point'>
-        <pose>0 0.28 1.78 0 0 0</pose>
-        <diffuse>1 0.02 0.02 1</diffuse>
-        <specular>1 0.02 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_red_south_2'>
       <static>true</static>
@@ -17136,18 +16758,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='red_glow' type='point'>
-        <pose>0 0.28 1.78 0 0 0</pose>
-        <diffuse>1 0.02 0.02 1</diffuse>
-        <specular>1 0.02 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_red_east_4'>
       <static>true</static>
@@ -17421,18 +17031,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='red_glow' type='point'>
-        <pose>0 0.28 1.78 0 0 0</pose>
-        <diffuse>1 0.02 0.02 1</diffuse>
-        <specular>1 0.02 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_red_west_4'>
       <static>true</static>
@@ -17706,18 +17304,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='red_glow' type='point'>
-        <pose>0 0.28 1.78 0 0 0</pose>
-        <diffuse>1 0.02 0.02 1</diffuse>
-        <specular>1 0.02 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_green_east_1_2'>
       <static>true</static>
@@ -17991,18 +17577,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='green_glow' type='point'>
-        <pose>0 0.28 1.32 0 0 0</pose>
-        <diffuse>0.02 1 0.02 1</diffuse>
-        <specular>0.02 1 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_green_west_1_2'>
       <static>true</static>
@@ -18276,18 +17850,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='green_glow' type='point'>
-        <pose>0 0.28 1.32 0 0 0</pose>
-        <diffuse>0.02 1 0.02 1</diffuse>
-        <specular>0.02 1 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_green_north_1_4'>
       <static>true</static>
@@ -18561,18 +18123,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='green_glow' type='point'>
-        <pose>0 0.28 1.32 0 0 0</pose>
-        <diffuse>0.02 1 0.02 1</diffuse>
-        <specular>0.02 1 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_green_south_1_4'>
       <static>true</static>
@@ -18846,18 +18396,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='green_glow' type='point'>
-        <pose>0 0.28 1.32 0 0 0</pose>
-        <diffuse>0.02 1 0.02 1</diffuse>
-        <specular>0.02 1 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_green_south_1_3_1'>
       <static>true</static>
@@ -19131,18 +18669,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='green_glow' type='point'>
-        <pose>0 0.28 1.32 0 0 0</pose>
-        <diffuse>0.02 1 0.02 1</diffuse>
-        <specular>0.02 1 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_green_south_1_3_2'>
       <static>true</static>
@@ -19416,18 +18942,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='green_glow' type='point'>
-        <pose>0 0.28 1.32 0 0 0</pose>
-        <diffuse>0.02 1 0.02 1</diffuse>
-        <specular>0.02 1 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_green_north_1_2_1'>
       <static>true</static>
@@ -19701,18 +19215,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='green_glow' type='point'>
-        <pose>0 0.28 1.32 0 0 0</pose>
-        <diffuse>0.02 1 0.02 1</diffuse>
-        <specular>0.02 1 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_green_north_1_2_2'>
       <static>true</static>
@@ -19986,18 +19488,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='green_glow' type='point'>
-        <pose>0 0.28 1.32 0 0 0</pose>
-        <diffuse>0.02 1 0.02 1</diffuse>
-        <specular>0.02 1 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_red_west_2_1'>
       <static>true</static>
@@ -20271,18 +19761,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='red_glow' type='point'>
-        <pose>0 0.28 1.78 0 0 0</pose>
-        <diffuse>1 0.02 0.02 1</diffuse>
-        <specular>1 0.02 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_red_west_2_2'>
       <static>true</static>
@@ -20556,18 +20034,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='red_glow' type='point'>
-        <pose>0 0.28 1.78 0 0 0</pose>
-        <diffuse>1 0.02 0.02 1</diffuse>
-        <specular>1 0.02 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_red_east_5'>
       <static>true</static>
@@ -20841,18 +20307,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='red_glow' type='point'>
-        <pose>0 0.28 1.78 0 0 0</pose>
-        <diffuse>1 0.02 0.02 1</diffuse>
-        <specular>1 0.02 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <model name='simple_traffic_light_red_east_6'>
       <static>true</static>
@@ -21126,18 +20580,6 @@
         <enable_wind>false</enable_wind>
       </link>
       <self_collide>false</self_collide>
-      <light name='red_glow' type='point'>
-        <pose>0 0.28 1.78 0 0 0</pose>
-        <diffuse>1 0.02 0.02 1</diffuse>
-        <specular>1 0.02 0.02 1</specular>
-        <attenuation>
-          <range>3.0</range>
-          <constant>0.8</constant>
-          <linear>0.15</linear>
-          <quadratic>0.02</quadratic>
-        </attenuation>
-        <cast_shadows>false</cast_shadows>
-      </light>
     </model>
     <light name='sun' type='directional'>
       <pose>0 0 40 0 0 0</pose>
