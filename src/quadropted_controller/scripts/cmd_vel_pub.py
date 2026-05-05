@@ -57,13 +57,13 @@ class RobotVelocityHandler(Node):
         new_msg = RobotVelocity()
         new_msg.robot_id = 1
 
-        new_msg.cmd_vel.linear.x = self.multiply_and_limit(msg.linear.x, 0.035, -1.0, 1.0)
-        new_msg.cmd_vel.linear.y = self.multiply_and_limit(msg.linear.y, 0.012, -1.0, 1.0)
+        new_msg.cmd_vel.linear.x = self.scale_x_velocity(msg.linear.x)
+        new_msg.cmd_vel.linear.y = self.multiply_and_limit(msg.linear.y, 0.02, -1.0, 1.0)
         new_msg.cmd_vel.linear.z = msg.linear.z
 
         new_msg.cmd_vel.angular.x = msg.angular.x
         new_msg.cmd_vel.angular.y = msg.angular.y
-        new_msg.cmd_vel.angular.z = self.limit(msg.angular.z, -1.0, 1.0)
+        new_msg.cmd_vel.angular.z = self.limit(msg.angular.z, -4.0, 4.0)
 
         self.publisher_.publish(new_msg)
         if self.verbose:
@@ -76,15 +76,31 @@ class RobotVelocityHandler(Node):
     def multiply_and_limit(self, value, scale_factor, min_limit, max_limit):
         # Обработка положительных и отрицательных значений отдельно
         if value > 0:
-            adjusted_value = value * 0.035
+            adjusted_value = value * 0.07
             scaled_value = scale_factor * (1 - math.exp(-100 * adjusted_value))
         else:
-            # Для отрицательных значений значение умножаем на -0.035
-            adjusted_value = (-value) * 0.035
+            # Для отрицательных значений значение умножаем на -0.105
+            adjusted_value = (-value) * 0.07
             scaled_value = -scale_factor * (1 - math.exp(-100 * adjusted_value))
         
         return self.limit_value(scaled_value, min_limit, max_limit)
 
+    def scale_x_velocity(self, value):
+        forward_scale = 0.07
+        backward_scale = 0.03  # в 2 раза медленнее назад
+        curve_gain = 0.07
+
+        if value > 0:
+            adjusted_value = value * curve_gain
+            scaled_value = forward_scale * (1 - math.exp(-100 * adjusted_value))
+        elif value < 0:
+            adjusted_value = (-value) * curve_gain
+            scaled_value = -backward_scale * (1 - math.exp(-100 * adjusted_value))
+        else:
+            scaled_value = 0.0
+
+        return self.limit_value(scaled_value, -backward_scale, forward_scale)
+    
     def limit_value(self, value, min_limit, max_limit):
         if value > max_limit:
             return max_limit
