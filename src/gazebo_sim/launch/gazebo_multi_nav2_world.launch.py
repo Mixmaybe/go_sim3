@@ -475,7 +475,7 @@ def generate_launch_description():
         )
 
         nav2_launch_file = os.path.join(pkg_path, 'launch', 'nav2', 'bringup_launch.py')
-        map_yaml_file = os.path.join(pkg_path, 'maps', 'city_second_new.yaml')
+        map_yaml_file = os.path.join(pkg_path, 'maps', 'city_edit2.yaml')
         default_nav2_params_file = os.path.join(pkg_path, 'config', 'nav2_params.yaml')
         gazebo_truth_nav2_params_file = os.path.join(pkg_path, 'config', 'nav2_params_gazebo_truth.yaml')
         params_file = PythonExpression(

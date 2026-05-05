@@ -42,7 +42,7 @@ def generate_launch_description():
     )
 
 
-    world = os.path.join(pkg_path, 'world', 'city_second_new.sdf')    
+    world = os.path.join(pkg_path, 'world', 'city_edit2.sdf')    
     # Include the Gazebo launch file, provided by the ros_gz_sim package
     gazebo = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
