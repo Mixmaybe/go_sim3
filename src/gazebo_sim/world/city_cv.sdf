@@ -14,8 +14,8 @@
       <render_engine>ogre2</render_engine>
     </plugin>
     <scene>
-      <ambient>0.7 0.7 0.7 1</ambient>
-      <background>0.65 0.75 0.85 1</background>
+      <ambient>0.699999988 0.699999988 0.699999988 1</ambient>
+      <background>0.649999976 0.75 0.850000024 1</background>
       <shadows>false</shadows>
       <grid>false</grid>
     </scene>
@@ -6291,7 +6291,7 @@
     </model>
     <model name='road_h_2_1'>
       <static>true</static>
-      <pose>0.20479900000000001 -13.667999999999999 0.01 0 0 0</pose>
+      <pose>0.20479899644851685 -13.668000221252441 0.0099999997764825821 0 0 0</pose>
       <link name='link'>
         <collision name='collision'>
           <geometry>
@@ -11847,7 +11847,7 @@
     </model>
     <model name='simple_traffic_light_red_west_1'>
       <static>true</static>
-      <pose>-7.8423600000000002 -9.3772000000000002 -6.9388939039072284e-18 0 0 1.5708000000000006</pose>
+      <pose>-7.8423600000000002 -9.3772000000000002 -2.0816681711721685e-17 0 0 1.5708000000000013</pose>
       <link name='base'>
         <pose>0 0 0.040000000000000001 0 0 0</pose>
         <collision name='collision'>
@@ -11894,7 +11894,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='pole'>
-        <pose>1.7763568394002505e-15 0 0.80000000000000004 0 0 0</pose>
+        <pose>5.3290705182007514e-15 -5.3290705182007514e-15 0.80000000000000004 0 0 6.6613381477509392e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -11939,7 +11939,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='signal_box'>
-        <pose>-5.3290705182007514e-15 0.090000000000001634 1.5500000000000003 0 0 0</pose>
+        <pose>-5.3290705182007514e-15 0.08999999999999897 1.5500000000000003 0 0 6.6613381477509392e-16</pose>
         <collision name='collision'>
           <geometry>
             <box>
@@ -11982,7 +11982,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='red_lens'>
-        <pose>3.5527136788005009e-15 0.18100000000000449 1.7800000000000002 1.5707963267999996 3.6054887673126345e-27 -1.4130832128153975e-15</pose>
+        <pose>7.1054273576010019e-15 0.18100000000000094 1.7800000000000002 1.5707963268000003 -1.5700924586637423e-16 -7.850462293422882e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -12027,7 +12027,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='yellow_lens'>
-        <pose>-5.3290705182007514e-15 0.18200000000000216 1.5500000000000003 1.5707963267999996 3.6054887673126345e-27 -1.4130832128153975e-15</pose>
+        <pose>-1.7763568394002505e-15 0.18199999999999861 1.5500000000000003 1.5707963268000003 -1.5700924586637423e-16 -7.850462293422882e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -12072,7 +12072,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='green_lens'>
-        <pose>3.5527136788005009e-15 0.18300000000000693 1.3199999999999998 1.5707963267999996 3.6054887673126345e-27 -1.4130832128153975e-15</pose>
+        <pose>3.5527136788005009e-15 0.18300000000000161 1.3199999999999998 1.5707963268000003 -1.5700924586637423e-16 -7.850462293422882e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -12167,7 +12167,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='pole'>
-        <pose>0 5.3290705182007514e-15 0.80000000000000016 0 0 0</pose>
+        <pose>0 0 0.80000000000000049 0 0 0</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -12212,7 +12212,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='signal_box'>
-        <pose>7.1054273576010019e-15 0.09000000000000874 1.5500000000000003 0 0 0</pose>
+        <pose>7.1054273576010019e-15 0.090000000000003411 1.5500000000000009 0 0 0</pose>
         <collision name='collision'>
           <geometry>
             <box>
@@ -12255,7 +12255,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='red_lens'>
-        <pose>0 0.18100000000000271 1.78 1.5707963267999998 -8.9688530999915811e-17 2.8884837225759793e-16</pose>
+        <pose>0 0.18099999999999739 1.78 1.5707963267999998 -8.9688381264230587e-17 2.8884822252191271e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -12300,7 +12300,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='yellow_lens'>
-        <pose>7.1054273576010019e-15 0.18200000000000927 1.5500000000000003 1.5707963267999998 -8.9688530999915811e-17 2.8884837225759793e-16</pose>
+        <pose>7.1054273576010019e-15 0.18200000000000927 1.5500000000000009 1.5707963267999998 -8.9688381264230587e-17 2.8884822252191271e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -12345,7 +12345,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='green_lens'>
-        <pose>-7.1054273576010019e-15 0.18300000000000516 1.3200000000000003 1.5707963267999998 -8.9688530999915811e-17 2.8884837225759793e-16</pose>
+        <pose>-7.1054273576010019e-15 0.18299999999999983 1.320000000000001 1.5707963267999998 -8.9688381264230587e-17 2.8884822252191271e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -12713,7 +12713,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='pole'>
-        <pose>0 -1.7763568394002505e-15 0.80000000000000016 0 0 0</pose>
+        <pose>0 -7.1054273576010019e-15 0.80000000000000049 0 0 0</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -12758,7 +12758,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='signal_box'>
-        <pose>8.8817841970012523e-16 0.089999999999998082 1.5500000000000003 0 0 0</pose>
+        <pose>3.5527136788005009e-15 0.089999999999992752 1.5500000000000009 0 0 0</pose>
         <collision name='collision'>
           <geometry>
             <box>
@@ -12801,7 +12801,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='red_lens'>
-        <pose>0 0.18099999999999739 1.78 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
+        <pose>0 0.18099999999998673 1.78 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -12846,7 +12846,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='yellow_lens'>
-        <pose>0 0.18199999999999861 1.5500000000000003 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
+        <pose>0 0.18199999999999328 1.5500000000000009 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -12891,7 +12891,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='green_lens'>
-        <pose>8.8817841970012523e-16 0.18299999999999628 1.3200000000000003 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
+        <pose>3.5527136788005009e-15 0.18299999999998562 1.320000000000001 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -12939,7 +12939,7 @@
     </model>
     <model name='simple_traffic_light_red_east_1'>
       <static>true</static>
-      <pose>-16.46505069204456 -9.3365546066623484 -1.3877787807814457e-17 0 0 -1.5707999672671711</pose>
+      <pose>-16.46505069204456 -9.3365546066623484 -2.7755575615628914e-17 0 0 -1.5707999672671726</pose>
       <link name='base'>
         <pose>0 0 0.040000000000000001 0 0 0</pose>
         <collision name='collision'>
@@ -12986,7 +12986,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='pole'>
-        <pose>-5.3290705182007514e-15 3.5527136788005009e-15 0.80000000000000004 0 0 -3.3306690738754696e-16</pose>
+        <pose>1.2434497875801753e-14 -1.0658141036401503e-14 0.80000000000000004 0 0 -3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -13031,7 +13031,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='signal_box'>
-        <pose>1.2434497875801753e-14 0.089999999999999858 1.5500000000000003 0 0 -3.3306690738754696e-16</pose>
+        <pose>2.6645352591003757e-14 0.089999999999982094 1.5500000000000003 0 0 -3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <box>
@@ -13074,7 +13074,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='red_lens'>
-        <pose>-3.5527136788005009e-15 0.18099999999999739 1.78 1.5707963267999998 7.8504622930783579e-17 1.3345785898814093e-15</pose>
+        <pose>8.8817841970012523e-15 0.18099999999998317 1.7800000000000002 1.5707963268 4.7102773759752026e-16 2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -13119,7 +13119,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='yellow_lens'>
-        <pose>-5.3290705182007514e-15 0.18200000000000216 1.5500000000000003 1.5707963267999998 7.8504622930783579e-17 1.3345785898814093e-15</pose>
+        <pose>1.0658141036401503e-14 0.18199999999999505 1.5500000000000003 1.5707963268 4.7102773759752026e-16 2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -13164,7 +13164,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='green_lens'>
-        <pose>5.3290705182007514e-15 0.18300000000000338 1.3199999999999998 1.5707963267999998 7.8504622930783579e-17 1.3345785898814093e-15</pose>
+        <pose>1.9539925233402755e-14 0.18299999999999628 1.3199999999999998 1.5707963268 4.7102773759752026e-16 2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -13485,7 +13485,7 @@
     </model>
     <model name='simple_traffic_light_green_east_1_1'>
       <static>true</static>
-      <pose>-16.352831093892426 -17.895696302400466 -2.0816681711721685e-17 0 0 -1.5707999672671711</pose>
+      <pose>-16.352831093892426 -17.895696302400466 -3.4694469519536142e-17 0 0 -1.5707999672671726</pose>
       <link name='base'>
         <pose>0 0 0.040000000000000001 0 0 0</pose>
         <collision name='collision'>
@@ -13532,7 +13532,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='pole'>
-        <pose>0 0 0.80000000000000004 0 0 -3.3306690738754696e-16</pose>
+        <pose>2.1316282072803006e-14 -3.5527136788005009e-15 0.80000000000000004 0 0 -3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -13577,7 +13577,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='signal_box'>
-        <pose>0 0.089999999999996305 1.55 0 0 -3.3306690738754696e-16</pose>
+        <pose>1.4210854715202004e-14 0.089999999999992752 1.5500000000000003 0 0 -3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <box>
@@ -13620,7 +13620,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='red_lens'>
-        <pose>3.5527136788005009e-15 0.18099999999999383 1.78 1.5707963267999998 -2.355138688059715e-16 1.3345785898806078e-15</pose>
+        <pose>2.4868995751603507e-14 0.18099999999998317 1.7800000000000002 1.5707963268 1.5700924585956345e-16 3.4542034091047069e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -13665,7 +13665,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='yellow_lens'>
-        <pose>0 0.18199999999999505 1.55 1.5707963267999998 -2.355138688059715e-16 1.3345785898806078e-15</pose>
+        <pose>1.4210854715202004e-14 0.18199999999999505 1.5500000000000003 1.5707963268 1.5700924585956345e-16 3.4542034091047069e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -13710,7 +13710,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='green_lens'>
-        <pose>0 0.18299999999999983 1.3200000000000003 1.5707963267999998 -2.355138688059715e-16 1.3345785898806078e-15</pose>
+        <pose>2.1316282072803006e-14 0.18300000000000338 1.3200000000000003 1.5707963268 1.5700924585956345e-16 3.4542034091047069e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -13758,7 +13758,7 @@
     </model>
     <model name='simple_traffic_light_green_west_1_1'>
       <static>true</static>
-      <pose>-7.8903706909818361 -17.93204356425986 -2.0816681711721685e-17 0 0 1.5707999672671711</pose>
+      <pose>-7.8903706909818361 -17.93204356425986 -3.4694469519536142e-17 0 0 1.5707999672671726</pose>
       <link name='base'>
         <pose>0 0 0.040000000000000001 0 0 0</pose>
         <collision name='collision'>
@@ -13805,7 +13805,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='pole'>
-        <pose>-3.5527136788005009e-15 6.2172489379008766e-15 0.80000000000000004 0 0 3.3306690738754696e-16</pose>
+        <pose>-1.0658141036401503e-14 1.865174681370263e-14 0.80000000000000004 0 0 3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -13850,7 +13850,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='signal_box'>
-        <pose>0 0.090000000000006963 1.55 0 0 3.3306690738754696e-16</pose>
+        <pose>3.5527136788005009e-15 0.090000000000014069 1.5500000000000003 0 0 3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <box>
@@ -13893,7 +13893,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='red_lens'>
-        <pose>0 0.18100000000000271 1.78 1.5707963267999998 2.355138688059715e-16 -1.3345785898806078e-15</pose>
+        <pose>-1.4210854715202004e-14 0.18100000000001337 1.7800000000000002 1.5707963268 -1.5700924585956345e-16 -3.4542034091047069e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -13938,7 +13938,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='yellow_lens'>
-        <pose>0 0.18200000000000749 1.55 1.5707963267999998 2.355138688059715e-16 -1.3345785898806078e-15</pose>
+        <pose>0 0.18200000000001282 1.5500000000000003 1.5707963268 -1.5700924585956345e-16 -3.4542034091047069e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -13983,7 +13983,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='green_lens'>
-        <pose>0 0.18300000000000693 1.3200000000000003 1.5707963267999998 2.355138688059715e-16 -1.3345785898806078e-15</pose>
+        <pose>-3.5527136788005009e-15 0.18300000000001226 1.3200000000000003 1.5707963268 -1.5700924585956345e-16 -3.4542034091047069e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -14031,7 +14031,7 @@
     </model>
     <model name='simple_traffic_light_red_east_2'>
       <static>true</static>
-      <pose>11.774926698468439 -9.4165716174160607 -1.3877787807814457e-17 0 0 -1.5707999672671711</pose>
+      <pose>11.774926698468439 -9.4165716174160607 -2.7755575615628914e-17 0 0 -1.5707999672671726</pose>
       <link name='base'>
         <pose>0 0 0.040000000000000001 0 0 0</pose>
         <collision name='collision'>
@@ -14078,7 +14078,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='pole'>
-        <pose>-7.1054273576010019e-15 8.8817841970012523e-15 0.80000000000000004 0 0 -3.3306690738754696e-16</pose>
+        <pose>-1.5987211554602254e-14 1.5987211554602254e-14 0.80000000000000004 0 0 -3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -14123,7 +14123,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='signal_box'>
-        <pose>8.8817841970012523e-15 0.090000000000005187 1.5500000000000003 0 0 -3.3306690738754696e-16</pose>
+        <pose>3.5527136788005009e-15 0.090000000000014069 1.5500000000000003 0 0 -3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <box>
@@ -14166,7 +14166,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='red_lens'>
-        <pose>-5.3290705182007514e-15 0.18100000000000804 1.78 1.5707963267999998 7.8504622930783579e-17 1.3345785898814093e-15</pose>
+        <pose>-1.5987211554602254e-14 0.18100000000001693 1.7800000000000002 1.5707963268 4.7102773759752026e-16 2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -14211,7 +14211,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='yellow_lens'>
-        <pose>-5.3290705182007514e-15 0.18200000000000394 1.5500000000000003 1.5707963267999998 7.8504622930783579e-17 1.3345785898814093e-15</pose>
+        <pose>-1.0658141036401503e-14 0.18200000000001637 1.5500000000000003 1.5707963268 4.7102773759752026e-16 2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -14256,7 +14256,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='green_lens'>
-        <pose>1.7763568394002505e-15 0.18300000000000871 1.3199999999999998 1.5707963267999998 7.8504622930783579e-17 1.3345785898814093e-15</pose>
+        <pose>-1.7763568394002505e-15 0.18300000000001759 1.3199999999999998 1.5707963268 4.7102773759752026e-16 2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -14304,7 +14304,7 @@
     </model>
     <model name='simple_traffic_light_red_east_3'>
       <static>true</static>
-      <pose>11.772916838391152 -17.894358570880065 -1.3877787807814457e-17 0 0 -1.5707999672671711</pose>
+      <pose>11.772916838391152 -17.894358570880065 -2.7755575615628914e-17 0 0 -1.5707999672671726</pose>
       <link name='base'>
         <pose>0 0 0.040000000000000001 0 0 0</pose>
         <collision name='collision'>
@@ -14351,7 +14351,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='pole'>
-        <pose>-3.5527136788005009e-15 8.8817841970012523e-15 0.80000000000000004 0 0 -3.3306690738754696e-16</pose>
+        <pose>7.1054273576010019e-15 2.4868995751603507e-14 0.80000000000000004 0 0 -3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -14396,7 +14396,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='signal_box'>
-        <pose>1.0658141036401503e-14 0.090000000000005187 1.5500000000000003 0 0 -3.3306690738754696e-16</pose>
+        <pose>1.4210854715202004e-14 0.090000000000017621 1.5500000000000003 0 0 -3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <box>
@@ -14439,7 +14439,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='red_lens'>
-        <pose>0 0.18100000000000982 1.78 1.5707963267999998 7.8504622930783579e-17 1.3345785898814093e-15</pose>
+        <pose>1.4210854715202004e-14 0.18100000000002581 1.7800000000000002 1.5707963268 4.7102773759752026e-16 2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -14484,7 +14484,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='yellow_lens'>
-        <pose>0 0.18200000000000749 1.5500000000000003 1.5707963267999998 7.8504622930783579e-17 1.3345785898814093e-15</pose>
+        <pose>7.1054273576010019e-15 0.18200000000001815 1.5500000000000003 1.5707963268 4.7102773759752026e-16 2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -14529,7 +14529,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='green_lens'>
-        <pose>0 0.18300000000001049 1.3199999999999998 1.5707963267999998 7.8504622930783579e-17 1.3345785898814093e-15</pose>
+        <pose>0 0.18300000000002115 1.3199999999999998 1.5707963268 4.7102773759752026e-16 2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -14577,7 +14577,7 @@
     </model>
     <model name='simple_traffic_light_red_west_2'>
       <static>true</static>
-      <pose>20.209085163271727 -9.432895705974973 -1.3877787807814457e-17 0 0 1.5707999672671711</pose>
+      <pose>20.209085163271727 -9.432895705974973 -2.7755575615628914e-17 0 0 1.5707999672671726</pose>
       <link name='base'>
         <pose>0 0 0.040000000000000001 0 0 0</pose>
         <collision name='collision'>
@@ -14624,7 +14624,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='pole'>
-        <pose>-3.5527136788005009e-15 -3.5527136788005009e-15 0.80000000000000004 0 0 3.3306690738754696e-16</pose>
+        <pose>-1.4210854715202004e-14 -1.7763568394002505e-14 0.80000000000000004 0 0 3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -14669,7 +14669,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='signal_box'>
-        <pose>-1.0658141036401503e-14 0.089999999999999858 1.5500000000000003 0 0 3.3306690738754696e-16</pose>
+        <pose>-2.4868995751603507e-14 0.089999999999985647 1.5500000000000003 0 0 3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <box>
@@ -14712,7 +14712,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='red_lens'>
-        <pose>0 0.18100000000000094 1.78 1.5707963267999998 -7.8504622930783579e-17 -1.3345785898814093e-15</pose>
+        <pose>-1.4210854715202004e-14 0.18099999999998317 1.7800000000000002 1.5707963268 -4.7102773759752026e-16 -2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -14757,7 +14757,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='yellow_lens'>
-        <pose>-8.8817841970012523e-15 0.18200000000000216 1.5500000000000003 1.5707963267999998 -7.8504622930783579e-17 -1.3345785898814093e-15</pose>
+        <pose>-2.1316282072803006e-14 0.1819999999999915 1.5500000000000003 1.5707963268 -4.7102773759752026e-16 -2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -14802,7 +14802,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='green_lens'>
-        <pose>-3.5527136788005009e-15 0.18300000000000338 1.3199999999999998 1.5707963267999998 -7.8504622930783579e-17 -1.3345785898814093e-15</pose>
+        <pose>-1.7763568394002505e-14 0.18299999999999272 1.3199999999999998 1.5707963268 -4.7102773759752026e-16 -2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -14850,7 +14850,7 @@
     </model>
     <model name='simple_traffic_light_red_west_3'>
       <static>true</static>
-      <pose>20.210819927549061 -17.910705115010835 -1.3877787807814457e-17 0 0 1.5707999672671711</pose>
+      <pose>20.210819927549061 -17.910705115010835 -2.7755575615628914e-17 0 0 1.5707999672671726</pose>
       <link name='base'>
         <pose>0 0 0.040000000000000001 0 0 0</pose>
         <collision name='collision'>
@@ -14897,7 +14897,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='pole'>
-        <pose>-3.5527136788005009e-15 0 0.80000000000000004 0 0 3.3306690738754696e-16</pose>
+        <pose>-2.1316282072803006e-14 -7.1054273576010019e-15 0.80000000000000004 0 0 3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -14942,7 +14942,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='signal_box'>
-        <pose>-7.1054273576010019e-15 0.089999999999996305 1.5500000000000003 0 0 3.3306690738754696e-16</pose>
+        <pose>-2.4868995751603507e-14 0.089999999999985647 1.5500000000000003 0 0 3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <box>
@@ -14985,7 +14985,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='red_lens'>
-        <pose>-3.5527136788005009e-15 0.18100000000000094 1.78 1.5707963267999998 -7.8504622930783579e-17 -1.3345785898814093e-15</pose>
+        <pose>-2.8421709430404007e-14 0.18099999999999739 1.7800000000000002 1.5707963268 -4.7102773759752026e-16 -2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -15030,7 +15030,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='yellow_lens'>
-        <pose>-7.1054273576010019e-15 0.18200000000000216 1.5500000000000003 1.5707963267999998 -7.8504622930783579e-17 -1.3345785898814093e-15</pose>
+        <pose>-2.4868995751603507e-14 0.18199999999999505 1.5500000000000003 1.5707963268 -4.7102773759752026e-16 -2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -15075,7 +15075,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='green_lens'>
-        <pose>0 0.18300000000000338 1.3199999999999998 1.5707963267999998 -7.8504622930783579e-17 -1.3345785898814093e-15</pose>
+        <pose>-7.1054273576010019e-15 0.18300000000000338 1.3199999999999998 1.5707963268 -4.7102773759752026e-16 -2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -15716,7 +15716,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='pole'>
-        <pose>-3.5527136788005009e-15 1.7763568394002505e-15 0.80000000000000016 0 0 0</pose>
+        <pose>-1.4210854715202004e-14 7.1054273576010019e-15 0.80000000000000049 0 0 0</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -15761,7 +15761,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='signal_box'>
-        <pose>0 0.090000000000005187 1.5500000000000003 0 0 0</pose>
+        <pose>0 0.090000000000021174 1.5500000000000009 0 0 0</pose>
         <collision name='collision'>
           <geometry>
             <box>
@@ -15804,7 +15804,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='red_lens'>
-        <pose>-3.5527136788005009e-15 0.18100000000000449 1.78 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
+        <pose>-1.4210854715202004e-14 0.18100000000001515 1.78 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -15849,7 +15849,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='yellow_lens'>
-        <pose>0 0.18200000000000216 1.5500000000000003 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
+        <pose>0 0.18200000000000749 1.5500000000000009 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -15894,7 +15894,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='green_lens'>
-        <pose>-3.5527136788005009e-15 0.18300000000000338 1.3200000000000003 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
+        <pose>-1.4210854715202004e-14 0.18300000000001404 1.320000000000001 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -15989,7 +15989,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='pole'>
-        <pose>-1.7763568394002505e-15 -3.5527136788005009e-15 0.80000000000000016 0 0 0</pose>
+        <pose>-7.1054273576010019e-15 -1.4210854715202004e-14 0.80000000000000049 0 0 0</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -16034,7 +16034,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='signal_box'>
-        <pose>-1.7763568394002505e-15 0.089999999999998082 1.5500000000000003 0 0 0</pose>
+        <pose>-7.1054273576010019e-15 0.089999999999992752 1.5500000000000009 0 0 0</pose>
         <collision name='collision'>
           <geometry>
             <box>
@@ -16077,7 +16077,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='red_lens'>
-        <pose>-1.7763568394002505e-15 0.18099999999999739 1.78 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
+        <pose>-7.1054273576010019e-15 0.18099999999998673 1.78 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -16122,7 +16122,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='yellow_lens'>
-        <pose>-1.7763568394002505e-15 0.18199999999999505 1.5500000000000003 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
+        <pose>-7.1054273576010019e-15 0.18199999999997907 1.5500000000000009 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -16167,7 +16167,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='green_lens'>
-        <pose>-1.7763568394002505e-15 0.18299999999999628 1.3200000000000003 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
+        <pose>-7.1054273576010019e-15 0.18299999999998562 1.320000000000001 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -16535,7 +16535,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='pole'>
-        <pose>-1.7763568394002505e-15 1.0658141036401503e-14 0.80000000000000016 0 0 0</pose>
+        <pose>-7.1054273576010019e-15 2.1316282072803006e-14 0.80000000000000049 0 0 0</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -16580,7 +16580,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='signal_box'>
-        <pose>7.1054273576010019e-15 0.090000000000017621 1.5500000000000003 0 0 0</pose>
+        <pose>7.1054273576010019e-15 0.090000000000038938 1.5500000000000009 0 0 0</pose>
         <collision name='collision'>
           <geometry>
             <box>
@@ -16623,7 +16623,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='red_lens'>
-        <pose>-1.7763568394002505e-15 0.18100000000001515 1.78 1.5707963267999998 -8.9688530999915811e-17 2.8884837225759793e-16</pose>
+        <pose>-7.1054273576010019e-15 0.18100000000004712 1.78 1.5707963267999998 -8.9688381264230587e-17 2.8884822252191271e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -16668,7 +16668,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='yellow_lens'>
-        <pose>5.3290705182007514e-15 0.18200000000001282 1.5500000000000003 1.5707963267999998 -8.9688530999915811e-17 2.8884837225759793e-16</pose>
+        <pose>0 0.18200000000002348 1.5500000000000009 1.5707963267999998 -8.9688381264230587e-17 2.8884822252191271e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -16713,7 +16713,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='green_lens'>
-        <pose>-7.1054273576010019e-15 0.18300000000001404 1.3200000000000003 1.5707963267999998 -8.9688530999915811e-17 2.8884837225759793e-16</pose>
+        <pose>-7.1054273576010019e-15 0.18300000000003536 1.320000000000001 1.5707963267999998 -8.9688381264230587e-17 2.8884822252191271e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -16761,7 +16761,7 @@
     </model>
     <model name='simple_traffic_light_red_east_4'>
       <static>true</static>
-      <pose>11.805686417757833 20.223236061390832 -1.3877787807814457e-17 0 0 -1.5707999672671711</pose>
+      <pose>11.805686417757833 20.223236061390832 -2.7755575615628914e-17 0 0 -1.5707999672671726</pose>
       <link name='base'>
         <pose>0 0 0.040000000000000001 0 0 0</pose>
         <collision name='collision'>
@@ -16808,7 +16808,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='pole'>
-        <pose>-1.4210854715202004e-14 8.8817841970012523e-15 0.80000000000000004 0 0 -3.3306690738754696e-16</pose>
+        <pose>-3.1974423109204508e-14 2.1316282072803006e-14 0.80000000000000004 0 0 -3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -16853,7 +16853,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='signal_box'>
-        <pose>0 0.090000000000005187 1.5500000000000003 0 0 -3.3306690738754696e-16</pose>
+        <pose>-2.1316282072803006e-14 0.090000000000003411 1.5500000000000003 0 0 -3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <box>
@@ -16896,7 +16896,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='red_lens'>
-        <pose>-1.4210854715202004e-14 0.18100000000000804 1.78 1.5707963267999998 7.8504622930783579e-17 1.3345785898814093e-15</pose>
+        <pose>-2.8421709430404007e-14 0.1810000000000187 1.7800000000000002 1.5707963268 4.7102773759752026e-16 2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -16941,7 +16941,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='yellow_lens'>
-        <pose>-1.4210854715202004e-14 0.18200000000000394 1.5500000000000003 1.5707963267999998 7.8504622930783579e-17 1.3345785898814093e-15</pose>
+        <pose>-2.8421709430404007e-14 0.18200000000000571 1.5500000000000003 1.5707963268 4.7102773759752026e-16 2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -16986,7 +16986,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='green_lens'>
-        <pose>-7.1054273576010019e-15 0.18300000000000338 1.3199999999999998 1.5707963267999998 7.8504622930783579e-17 1.3345785898814093e-15</pose>
+        <pose>-2.8421709430404007e-14 0.18300000000000693 1.3199999999999998 1.5707963268 4.7102773759752026e-16 2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -17034,7 +17034,7 @@
     </model>
     <model name='simple_traffic_light_red_west_4'>
       <static>true</static>
-      <pose>20.233862638842439 20.339580294260792 -1.3877787807814457e-17 0 0 1.5707999672671711</pose>
+      <pose>20.233862638842439 20.339580294260792 -2.7755575615628914e-17 0 0 1.5707999672671726</pose>
       <link name='base'>
         <pose>0 0 0.040000000000000001 0 0 0</pose>
         <collision name='collision'>
@@ -17081,7 +17081,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='pole'>
-        <pose>3.5527136788005009e-15 -1.0658141036401503e-14 0.80000000000000004 0 0 3.3306690738754696e-16</pose>
+        <pose>7.1054273576010019e-15 -2.8421709430404007e-14 0.80000000000000004 0 0 3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -17126,7 +17126,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='signal_box'>
-        <pose>-3.5527136788005009e-15 0.089999999999996305 1.5500000000000003 0 0 3.3306690738754696e-16</pose>
+        <pose>3.5527136788005009e-15 0.089999999999978542 1.5500000000000003 0 0 3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <box>
@@ -17169,7 +17169,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='red_lens'>
-        <pose>0 0.18099999999999383 1.78 1.5707963267999998 -7.8504622930783579e-17 -1.3345785898814093e-15</pose>
+        <pose>-3.5527136788005009e-15 0.18099999999997252 1.7800000000000002 1.5707963268 -4.7102773759752026e-16 -2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -17214,7 +17214,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='yellow_lens'>
-        <pose>0 0.1819999999999915 1.5500000000000003 1.5707963267999998 -7.8504622930783579e-17 -1.3345785898814093e-15</pose>
+        <pose>3.5527136788005009e-15 0.18199999999997374 1.5500000000000003 1.5707963268 -4.7102773759752026e-16 -2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -17259,7 +17259,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='green_lens'>
-        <pose>3.5527136788005009e-15 0.18299999999999983 1.3199999999999998 1.5707963267999998 -7.8504622930783579e-17 -1.3345785898814093e-15</pose>
+        <pose>7.1054273576010019e-15 0.18299999999998562 1.3199999999999998 1.5707963268 -4.7102773759752026e-16 -2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -17307,7 +17307,7 @@
     </model>
     <model name='simple_traffic_light_green_east_1_2'>
       <static>true</static>
-      <pose>11.719691132736202 11.671792408999575 -2.0816681711721685e-17 0 0 -1.5707999672671711</pose>
+      <pose>11.719691132736202 11.671792408999575 -3.4694469519536142e-17 0 0 -1.5707999672671726</pose>
       <link name='base'>
         <pose>0 0 0.040000000000000001 0 0 0</pose>
         <collision name='collision'>
@@ -17354,7 +17354,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='pole'>
-        <pose>-3.5527136788005009e-15 1.7763568394002505e-15 0.80000000000000004 0 0 -3.3306690738754696e-16</pose>
+        <pose>-8.8817841970012523e-15 3.5527136788005009e-15 0.80000000000000004 0 0 -3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -17399,7 +17399,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='signal_box'>
-        <pose>0 0.090000000000001634 1.55 0 0 -3.3306690738754696e-16</pose>
+        <pose>-7.1054273576010019e-15 0.089999999999998082 1.5500000000000003 0 0 -3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <box>
@@ -17442,7 +17442,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='red_lens'>
-        <pose>-3.5527136788005009e-15 0.18100000000000094 1.78 1.5707963267999998 -2.355138688059715e-16 1.3345785898806078e-15</pose>
+        <pose>-1.4210854715202004e-14 0.18100000000000094 1.7800000000000002 1.5707963268 1.5700924585956345e-16 3.4542034091047069e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -17487,7 +17487,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='yellow_lens'>
-        <pose>-1.7763568394002505e-15 0.18200000000000216 1.55 1.5707963267999998 -2.355138688059715e-16 1.3345785898806078e-15</pose>
+        <pose>-1.0658141036401503e-14 0.18199999999999683 1.5500000000000003 1.5707963268 1.5700924585956345e-16 3.4542034091047069e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -17532,7 +17532,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='green_lens'>
-        <pose>0 0.18300000000000161 1.3200000000000003 1.5707963267999998 -2.355138688059715e-16 1.3345785898806078e-15</pose>
+        <pose>-3.5527136788005009e-15 0.18299999999999628 1.3200000000000003 1.5707963268 1.5700924585956345e-16 3.4542034091047069e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -17580,7 +17580,7 @@
     </model>
     <model name='simple_traffic_light_green_west_1_2'>
       <static>true</static>
-      <pose>20.209720938501111 11.759744658745365 -2.0816681711721685e-17 0 0 1.5707999672671711</pose>
+      <pose>20.209720938501111 11.759744658745365 -3.4694469519536142e-17 0 0 1.5707999672671726</pose>
       <link name='base'>
         <pose>0 0 0.040000000000000001 0 0 0</pose>
         <collision name='collision'>
@@ -17627,7 +17627,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='pole'>
-        <pose>1.7763568394002505e-15 -3.5527136788005009e-15 0.80000000000000004 0 0 3.3306690738754696e-16</pose>
+        <pose>-3.5527136788005009e-15 -1.7763568394002505e-14 0.80000000000000004 0 0 3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -17672,7 +17672,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='signal_box'>
-        <pose>0 0.089999999999992752 1.55 0 0 3.3306690738754696e-16</pose>
+        <pose>-8.8817841970012523e-15 0.089999999999974989 1.5500000000000003 0 0 3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <box>
@@ -17715,7 +17715,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='red_lens'>
-        <pose>1.7763568394002505e-15 0.18099999999999739 1.78 1.5707963267999998 2.355138688059715e-16 -1.3345785898806078e-15</pose>
+        <pose>-1.7763568394002505e-15 0.18099999999997607 1.7800000000000002 1.5707963268 -1.5700924585956345e-16 -3.4542034091047069e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -17760,7 +17760,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='yellow_lens'>
-        <pose>1.7763568394002505e-15 0.18199999999999505 1.55 1.5707963267999998 2.355138688059715e-16 -1.3345785898806078e-15</pose>
+        <pose>-7.1054273576010019e-15 0.1819999999999844 1.5500000000000003 1.5707963268 -1.5700924585956345e-16 -3.4542034091047069e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -17805,7 +17805,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='green_lens'>
-        <pose>3.5527136788005009e-15 0.18299999999999628 1.3200000000000003 1.5707963267999998 2.355138688059715e-16 -1.3345785898806078e-15</pose>
+        <pose>-5.3290705182007514e-15 0.18299999999998207 1.3200000000000003 1.5707963268 -1.5700924585956345e-16 -3.4542034091047069e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -18173,7 +18173,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='pole'>
-        <pose>7.1054273576010019e-15 0 0.80000000000000016 0 0 0</pose>
+        <pose>2.8421709430404007e-14 0 0.80000000000000049 0 0 0</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -18218,7 +18218,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='signal_box'>
-        <pose>1.0658141036401503e-14 0.089999999999999858 1.5500000000000003 0 0 0</pose>
+        <pose>4.2632564145606011e-14 0.089999999999999858 1.5500000000000009 0 0 0</pose>
         <collision name='collision'>
           <geometry>
             <box>
@@ -18261,7 +18261,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='red_lens'>
-        <pose>7.1054273576010019e-15 0.18099999999999383 1.78 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
+        <pose>2.8421709430404007e-14 0.18099999999998317 1.78 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -18306,7 +18306,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='yellow_lens'>
-        <pose>1.0658141036401503e-14 0.18199999999999861 1.5500000000000003 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
+        <pose>4.2632564145606011e-14 0.18199999999999861 1.5500000000000009 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -18351,7 +18351,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='green_lens'>
-        <pose>7.1054273576010019e-15 0.18299999999999983 1.3200000000000003 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
+        <pose>2.8421709430404007e-14 0.18299999999999983 1.320000000000001 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -18446,7 +18446,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='pole'>
-        <pose>3.5527136788005009e-15 3.5527136788005009e-15 0.80000000000000016 0 0 0</pose>
+        <pose>1.4210854715202004e-14 1.4210854715202004e-14 0.80000000000000049 0 0 0</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -18491,7 +18491,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='signal_box'>
-        <pose>3.5527136788005009e-15 0.090000000000003411 1.5500000000000003 0 0 0</pose>
+        <pose>1.4210854715202004e-14 0.090000000000014069 1.5500000000000009 0 0 0</pose>
         <collision name='collision'>
           <geometry>
             <box>
@@ -18534,7 +18534,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='red_lens'>
-        <pose>3.5527136788005009e-15 0.18099999999999739 1.78 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
+        <pose>1.4210854715202004e-14 0.18099999999999739 1.78 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -18579,7 +18579,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='yellow_lens'>
-        <pose>0 0.18200000000000216 1.5500000000000003 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
+        <pose>0 0.18200000000001282 1.5500000000000009 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -18624,7 +18624,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='green_lens'>
-        <pose>3.5527136788005009e-15 0.18300000000000338 1.3200000000000003 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
+        <pose>1.4210854715202004e-14 0.18300000000001404 1.320000000000001 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -18719,7 +18719,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='pole'>
-        <pose>0 -3.5527136788005009e-15 0.80000000000000016 0 0 0</pose>
+        <pose>0 -1.4210854715202004e-14 0.80000000000000049 0 0 0</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -18764,7 +18764,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='signal_box'>
-        <pose>0 0.089999999999992752 1.5500000000000003 0 0 0</pose>
+        <pose>0 0.089999999999971436 1.5500000000000009 0 0 0</pose>
         <collision name='collision'>
           <geometry>
             <box>
@@ -18807,7 +18807,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='red_lens'>
-        <pose>0 0.18099999999999383 1.78 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
+        <pose>0 0.18099999999998317 1.78 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -18852,7 +18852,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='yellow_lens'>
-        <pose>-8.8817841970012523e-16 0.18199999999999861 1.5500000000000003 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
+        <pose>-3.5527136788005009e-15 0.18199999999999861 1.5500000000000009 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -18897,7 +18897,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='green_lens'>
-        <pose>0 0.18299999999999272 1.3200000000000003 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
+        <pose>0 0.18299999999997141 1.320000000000001 1.5707963267999998 1.2475048931562623e-16 -1.2475078878636004e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -19491,7 +19491,7 @@
     </model>
     <model name='simple_traffic_light_red_west_2_1'>
       <static>true</static>
-      <pose>-7.8804206978780122 20.265613883144834 -2.0816681711721685e-17 0 0 1.5707999672671711</pose>
+      <pose>-7.8804206978780122 20.265613883144834 -3.4694469519536142e-17 0 0 1.5707999672671726</pose>
       <link name='base'>
         <pose>0 0 0.040000000000000001 0 0 0</pose>
         <collision name='collision'>
@@ -19538,7 +19538,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='pole'>
-        <pose>3.5527136788005009e-15 -1.7763568394002505e-15 0.80000000000000004 0 0 3.3306690738754696e-16</pose>
+        <pose>7.1054273576010019e-15 -3.5527136788005009e-15 0.80000000000000004 0 0 3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -19583,7 +19583,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='signal_box'>
-        <pose>-3.5527136788005009e-15 0.090000000000000746 1.5500000000000003 0 0 3.3306690738754696e-16</pose>
+        <pose>7.1054273576010019e-15 0.090000000000003411 1.5500000000000003 0 0 3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <box>
@@ -19626,7 +19626,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='red_lens'>
-        <pose>0 0.18100000000000094 1.78 1.5707963267999998 -7.8504622930783579e-17 -1.3345785898814093e-15</pose>
+        <pose>3.5527136788005009e-15 0.18100000000000094 1.7800000000000002 1.5707963268 -4.7102773759752026e-16 -2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -19671,7 +19671,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='yellow_lens'>
-        <pose>-7.1054273576010019e-15 0.18200000000000038 1.5500000000000003 1.5707963267999998 -7.8504622930783579e-17 -1.3345785898814093e-15</pose>
+        <pose>3.5527136788005009e-15 0.18199999999999505 1.5500000000000003 1.5707963268 -4.7102773759752026e-16 -2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -19716,7 +19716,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='green_lens'>
-        <pose>3.5527136788005009e-15 0.18300000000000516 1.3199999999999998 1.5707963267999998 -7.8504622930783579e-17 -1.3345785898814093e-15</pose>
+        <pose>1.4210854715202004e-14 0.18300000000000516 1.3199999999999998 1.5707963268 -4.7102773759752026e-16 -2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -19764,7 +19764,7 @@
     </model>
     <model name='simple_traffic_light_red_west_2_2'>
       <static>true</static>
-      <pose>-7.8200928472660758 11.73966045355432 -2.0816681711721685e-17 0 0 1.5707999672671711</pose>
+      <pose>-7.8200928472660758 11.73966045355432 -3.4694469519536142e-17 0 0 1.5707999672671726</pose>
       <link name='base'>
         <pose>0 0 0.040000000000000001 0 0 0</pose>
         <collision name='collision'>
@@ -19811,7 +19811,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='pole'>
-        <pose>3.5527136788005009e-15 -4.4408920985006262e-15 0.80000000000000004 0 0 3.3306690738754696e-16</pose>
+        <pose>1.0658141036401503e-14 -9.7699626167013776e-15 0.80000000000000004 0 0 3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -19856,7 +19856,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='signal_box'>
-        <pose>-3.5527136788005009e-15 0.089999999999999858 1.5500000000000003 0 0 3.3306690738754696e-16</pose>
+        <pose>0 0.089999999999994529 1.5500000000000003 0 0 3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <box>
@@ -19899,7 +19899,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='red_lens'>
-        <pose>3.5527136788005009e-15 0.18100000000000094 1.78 1.5707963267999998 -7.8504622930783579e-17 -1.3345785898814093e-15</pose>
+        <pose>1.0658141036401503e-14 0.18099999999999383 1.7800000000000002 1.5707963268 -4.7102773759752026e-16 -2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -19944,7 +19944,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='yellow_lens'>
-        <pose>-3.5527136788005009e-15 0.18199999999999861 1.5500000000000003 1.5707963267999998 -7.8504622930783579e-17 -1.3345785898814093e-15</pose>
+        <pose>0 0.18199999999999505 1.5500000000000003 1.5707963268 -4.7102773759752026e-16 -2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -19989,7 +19989,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='green_lens'>
-        <pose>3.5527136788005009e-15 0.18300000000000338 1.3199999999999998 1.5707963267999998 -7.8504622930783579e-17 -1.3345785898814093e-15</pose>
+        <pose>8.8817841970012523e-15 0.1829999999999945 1.3199999999999998 1.5707963268 -4.7102773759752026e-16 -2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -20037,7 +20037,7 @@
     </model>
     <model name='simple_traffic_light_red_east_5'>
       <static>true</static>
-      <pose>-16.341755595436247 11.74528513419834 -1.3877787807814457e-17 0 0 -1.5707999672671711</pose>
+      <pose>-16.341755595436247 11.74528513419834 -2.7755575615628914e-17 0 0 -1.5707999672671726</pose>
       <link name='base'>
         <pose>0 0 0.040000000000000001 0 0 0</pose>
         <collision name='collision'>
@@ -20084,7 +20084,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='pole'>
-        <pose>-7.1054273576010019e-15 0 0.80000000000000004 0 0 -3.3306690738754696e-16</pose>
+        <pose>-1.2434497875801753e-14 -1.4210854715202004e-14 0.80000000000000004 0 0 -3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -20129,7 +20129,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='signal_box'>
-        <pose>7.1054273576010019e-15 0.089999999999996305 1.5500000000000003 0 0 -3.3306690738754696e-16</pose>
+        <pose>3.5527136788005009e-15 0.089999999999978542 1.5500000000000003 0 0 -3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <box>
@@ -20172,7 +20172,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='red_lens'>
-        <pose>-7.1054273576010019e-15 0.18099999999999739 1.78 1.5707963267999998 7.8504622930783579e-17 1.3345785898814093e-15</pose>
+        <pose>-1.0658141036401503e-14 0.18099999999997962 1.7800000000000002 1.5707963268 4.7102773759752026e-16 2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -20217,7 +20217,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='yellow_lens'>
-        <pose>-7.1054273576010019e-15 0.18199999999999861 1.5500000000000003 1.5707963267999998 7.8504622930783579e-17 1.3345785898814093e-15</pose>
+        <pose>-1.4210854715202004e-14 0.18199999999998795 1.5500000000000003 1.5707963268 4.7102773759752026e-16 2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -20262,7 +20262,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='green_lens'>
-        <pose>0 0.18300000000000338 1.3199999999999998 1.5707963267999998 7.8504622930783579e-17 1.3345785898814093e-15</pose>
+        <pose>-5.3290705182007514e-15 0.18299999999999272 1.3199999999999998 1.5707963268 4.7102773759752026e-16 2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -20310,7 +20310,7 @@
     </model>
     <model name='simple_traffic_light_red_east_6'>
       <static>true</static>
-      <pose>-16.3438603016297 20.282682133962247 -1.3877787807814457e-17 0 0 -1.5707999672671711</pose>
+      <pose>-16.3438603016297 20.282682133962247 -2.7755575615628914e-17 0 0 -1.5707999672671726</pose>
       <link name='base'>
         <pose>0 0 0.040000000000000001 0 0 0</pose>
         <collision name='collision'>
@@ -20357,7 +20357,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='pole'>
-        <pose>-1.0658141036401503e-14 7.1054273576010019e-15 0.80000000000000004 0 0 -3.3306690738754696e-16</pose>
+        <pose>-2.4868995751603507e-14 -1.0658141036401503e-14 0.80000000000000004 0 0 -3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -20402,7 +20402,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='signal_box'>
-        <pose>3.5527136788005009e-15 0.090000000000003411 1.5500000000000003 0 0 -3.3306690738754696e-16</pose>
+        <pose>-1.0658141036401503e-14 0.0899999999999892 1.5500000000000003 0 0 -3.3306690738754696e-16</pose>
         <collision name='collision'>
           <geometry>
             <box>
@@ -20445,7 +20445,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='red_lens'>
-        <pose>-1.4210854715202004e-14 0.18100000000000094 1.78 1.5707963267999998 7.8504622930783579e-17 1.3345785898814093e-15</pose>
+        <pose>-1.7763568394002505e-14 0.18099999999998317 1.7800000000000002 1.5707963268 4.7102773759752026e-16 2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -20490,7 +20490,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='yellow_lens'>
-        <pose>-1.7763568394002505e-14 0.18199999999999861 1.5500000000000003 1.5707963267999998 7.8504622930783579e-17 1.3345785898814093e-15</pose>
+        <pose>-3.1974423109204508e-14 0.18199999999998795 1.5500000000000003 1.5707963268 4.7102773759752026e-16 2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -20535,7 +20535,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <link name='green_lens'>
-        <pose>-7.1054273576010019e-15 0.18300000000000693 1.3199999999999998 1.5707963267999998 7.8504622930783579e-17 1.3345785898814093e-15</pose>
+        <pose>-2.1316282072803006e-14 0.18299999999999983 1.3199999999999998 1.5707963268 4.7102773759752026e-16 2.9831756715003761e-15</pose>
         <collision name='collision'>
           <geometry>
             <cylinder>
@@ -20579,6 +20579,1066 @@
         </inertial>
         <enable_wind>false</enable_wind>
       </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='casual_female'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='box'>
+          <pose>0 0 0.90000000000000002 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.76000000000000001 0.33000000000000002 1.77</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 0.02 0.040000000000000001 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/kir/.gz/fuel/fuel.gazebosim.org/openrobotics/models/casual female/4/meshes/casual_female.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-7.1289801597595215 -15.3441162109375 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='FemaleVisitor'>
+      <static>true</static>
+      <link name='body'>
+        <pose>0 0 0 0 0 0</pose>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/femalevisitor/2/files/meshes/FemaleVisitor.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/femalevisitor/2/files/meshes/FemaleVisitor_Col.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-6.2569699287414551 9.1412496566772461 0 0 0 -2.4823221352826632</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='MaleVisitorOnPhone'>
+      <static>true</static>
+      <link name='body'>
+        <pose>0 0 0 0 0 0</pose>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/malevisitoronphone/2/files/meshes/MaleVisitorStatic.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/malevisitoronphone/2/files/meshes/MaleVisitorStatic_Col.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>9.2094143105532318 -8.4147659160710155 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='MaleVisitorOnPhone_0'>
+      <static>true</static>
+      <link name='body'>
+        <pose>0 0 0 0 0 0</pose>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/malevisitoronphone/2/files/meshes/MaleVisitorStatic.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/malevisitoronphone/2/files/meshes/MaleVisitorStatic_Col.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>2.2269653338155324 22.492411318505788 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='casual_female_0'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='box'>
+          <pose>0 0 0.90000000000000002 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.76000000000000001 0.33000000000000002 1.77</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 0.02 0.040000000000000001 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/kir/.gz/fuel/fuel.gazebosim.org/openrobotics/models/casual female/4/meshes/casual_female.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>21.786372401003447 23.153666725044097 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='FemaleVisitor_0'>
+      <static>true</static>
+      <link name='body'>
+        <pose>0 0 0 0 0 0</pose>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/femalevisitor/2/files/meshes/FemaleVisitor.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/femalevisitor/2/files/meshes/FemaleVisitor_Col.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-21.914616908850711 -5.1741710443477338 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='FemaleVisitor_1'>
+      <static>true</static>
+      <link name='body'>
+        <pose>0 0 0 0 0 0</pose>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/femalevisitor/2/files/meshes/FemaleVisitor.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/femalevisitor/2/files/meshes/FemaleVisitor_Col.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>22.285778231764741 -3.2003334332689644 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='person_standing'>
+      <link name='link'>
+        <inertial>
+          <pose>0 -0.10000000000000001 0.94999999999999996 0 0 0</pose>
+          <mass>80</mass>
+          <inertia>
+            <ixx>24.879999999999999</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>25.73</iyy>
+            <iyz>0</iyz>
+            <izz>2.48</izz>
+          </inertia>
+        </inertial>
+        <collision name='bottom'>
+          <pose>0 -0.10000000000000001 0.01 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.34999999999999998 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <collision name='person'>
+          <pose>0 0 0.02 0.040000000000000001 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/standing person/3/files/meshes/standing.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 0.02 0.040000000000000001 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/standing person/3/files/meshes/standing.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-17.787880680893831 -9.0439397393645997 0 0 0 0</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='person_standing_0'>
+      <link name='link'>
+        <inertial>
+          <pose>0 -0.10000000000000001 0.94999999999999996 0 0 0</pose>
+          <mass>80</mass>
+          <inertia>
+            <ixx>24.879999999999999</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>25.73</iyy>
+            <iyz>0</iyz>
+            <izz>2.48</izz>
+          </inertia>
+        </inertial>
+        <collision name='bottom'>
+          <pose>0 -0.10000000000000001 0.01 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.34999999999999998 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <collision name='person'>
+          <pose>0 0 0.02 0.040000000000000001 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/standing person/3/files/meshes/standing.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 0.02 0.040000000000000001 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/standing person/3/files/meshes/standing.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>10.239742013910167 21.272830807661524 0 0 0 0</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='person_walking'>
+      <link name='link'>
+        <inertial>
+          <pose>0 0 0.94999999999999996 0 0 0</pose>
+          <mass>80</mass>
+          <inertia>
+            <ixx>27.82</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>24.879999999999999</iyy>
+            <iyz>0</iyz>
+            <izz>4.5700000000000003</izz>
+          </inertia>
+        </inertial>
+        <collision name='bottom'>
+          <pose>0 0 0.01 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.34999999999999998 0.75 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <collision name='person'>
+          <pose>0 0 -0.02 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/walking person/3/files/meshes/walking.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 -0.02 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/walking person/3/files/meshes/walking.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>21.673537972954733 -13.137633845213584 0 0 0 0</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='person_walking_0'>
+      <link name='link'>
+        <inertial>
+          <pose>0 0 0.94999999999999996 0 0 0</pose>
+          <mass>80</mass>
+          <inertia>
+            <ixx>27.82</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>24.879999999999999</iyy>
+            <iyz>0</iyz>
+            <izz>4.5700000000000003</izz>
+          </inertia>
+        </inertial>
+        <collision name='bottom'>
+          <pose>0 0 0.01 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.34999999999999998 0.75 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <collision name='person'>
+          <pose>0 0 -0.02 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/walking person/3/files/meshes/walking.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 -0.02 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/walking person/3/files/meshes/walking.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>9.8519601821899396 -13.744999885559082 0 0 0 2.9164698826190047</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='person_standing_1'>
+      <link name='link'>
+        <inertial>
+          <pose>0 -0.10000000000000001 0.94999999999999996 0 0 0</pose>
+          <mass>80</mass>
+          <inertia>
+            <ixx>24.879999999999999</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>25.73</iyy>
+            <iyz>0</iyz>
+            <izz>2.48</izz>
+          </inertia>
+        </inertial>
+        <collision name='bottom'>
+          <pose>0 -0.10000000000000001 0.01 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.34999999999999998 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <collision name='person'>
+          <pose>0 0 0.02 0.040000000000000001 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/standing person/3/files/meshes/standing.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 0.02 0.040000000000000001 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/standing person/3/files/meshes/standing.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-17.052600860595703 21.404499053955078 0 0 0 1.4853652032406002</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='person_walking_1'>
+      <link name='link'>
+        <inertial>
+          <pose>0 0 0.94999999999999996 0 0 0</pose>
+          <mass>80</mass>
+          <inertia>
+            <ixx>27.82</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>24.879999999999999</iyy>
+            <iyz>0</iyz>
+            <izz>4.5700000000000003</izz>
+          </inertia>
+        </inertial>
+        <collision name='bottom'>
+          <pose>0 0 0.01 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.34999999999999998 0.75 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <collision name='person'>
+          <pose>0 0 -0.02 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/walking person/3/files/meshes/walking.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 -0.02 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/walking person/3/files/meshes/walking.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-17.64387844999564 14.050687813109617 0 0 0 0</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='MaleVisitorOnPhone_1'>
+      <static>true</static>
+      <link name='body'>
+        <pose>0 0 0 0 0 0</pose>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/malevisitoronphone/2/files/meshes/MaleVisitorStatic.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/malevisitoronphone/2/files/meshes/MaleVisitorStatic_Col.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-6.4277200698852539 24.904499053955078 0 0 0 1.7261257512799235</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='FemaleVisitor_2'>
+      <static>true</static>
+      <link name='body'>
+        <pose>0 0 0 0 0 0</pose>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/femalevisitor/2/files/meshes/FemaleVisitor.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/femalevisitor/2/files/meshes/FemaleVisitor_Col.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-25.154899597167969 24.491100311279297 0 0 0 1.6497800714424762</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='casual_female_1'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='box'>
+          <pose>0 0 0.90000000000000002 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.76000000000000001 0.33000000000000002 1.77</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 0.02 0.040000000000000001 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/kir/.gz/fuel/fuel.gazebosim.org/openrobotics/models/casual female/4/meshes/casual_female.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>21.231250006674152 -12.532506173138612 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='MaleVisitorOnPhone_2'>
+      <static>true</static>
+      <link name='body'>
+        <pose>0 0 0 0 0 0</pose>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/malevisitoronphone/2/files/meshes/MaleVisitorStatic.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/malevisitoronphone/2/files/meshes/MaleVisitorStatic_Col.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>11.560389687922221 -19.41067659977363 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='FemaleVisitor_3'>
+      <static>true</static>
+      <link name='body'>
+        <pose>0 0 0 0 0 0</pose>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/femalevisitor/2/files/meshes/FemaleVisitor.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/femalevisitor/2/files/meshes/FemaleVisitor_Col.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>21.007600784301758 -19.094600677490234 0 0 0 -1.6147305318093104</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='person_walking_2'>
+      <link name='link'>
+        <inertial>
+          <pose>0 0 0.94999999999999996 0 0 0</pose>
+          <mass>80</mass>
+          <inertia>
+            <ixx>27.82</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>24.879999999999999</iyy>
+            <iyz>0</iyz>
+            <izz>4.5700000000000003</izz>
+          </inertia>
+        </inertial>
+        <collision name='bottom'>
+          <pose>0 0 0.01 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.34999999999999998 0.75 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <collision name='person'>
+          <pose>0 0 -0.02 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/walking person/3/files/meshes/walking.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 -0.02 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/walking person/3/files/meshes/walking.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>21.344341872724726 5.4772140559993607 0 0 0 0</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='suv_2'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <pose>0 0 0 0 0 -1.57079632679</pose>
+          <geometry>
+            <mesh>
+              <scale>0.059999999999999998 0.059999999999999998 0.059999999999999998</scale>
+              <uri>file:///home/kir/.gz/fuel/fuel.gazebosim.org/openrobotics/models/suv/4/meshes/suv.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 0 0 0 -1.57079632679</pose>
+          <geometry>
+            <mesh>
+              <scale>0.059999999999999998 0.059999999999999998 0.059999999999999998</scale>
+              <uri>file:///home/kir/.gz/fuel/fuel.gazebosim.org/openrobotics/models/suv/4/meshes/suv.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>29.368766941238796 -17.067194746246205 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='Apriltag36_11_00000'>
+      <link name='link'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.5</mass>
+          <inertia>
+            <ixx>0.0001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0001</iyy>
+            <iyz>0</iyz>
+            <izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/kir/go_sim2/src/gazebo_sim/models/Apriltag36_11_00000/model://Apriltag36_11_00000/meshes/tag36_11_00000.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>10000000</kp>
+                <kd>1</kd>
+                <min_depth>0.001</min_depth>
+                <max_vel>0.10000000000000001</max_vel>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/kir/go_sim2/src/gazebo_sim/models/Apriltag36_11_00000/model://Apriltag36_11_00000/meshes/tag36_11_00000.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>24.22712516784668 -31.48740196228027 0.32053181529045105 3.1415900000000638 -1.5563200020906385 3.1415900000000638</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='Apriltag36_11_00000_1'>
+      <link name='link'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.5</mass>
+          <inertia>
+            <ixx>0.0001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0001</iyy>
+            <iyz>0</iyz>
+            <izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/kir/go_sim2/src/gazebo_sim/models/Apriltag36_11_00000/model://Apriltag36_11_00000/meshes/tag36_11_00000.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>10000000</kp>
+                <kd>1</kd>
+                <min_depth>0.001</min_depth>
+                <max_vel>0.10000000000000001</max_vel>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/kir/go_sim2/src/gazebo_sim/models/Apriltag36_11_00000/model://Apriltag36_11_00000/meshes/tag36_11_00000.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <pose>23.824405790586226 27.288638262177823 0.32053199410438538 3.1415900000000638 -1.5563200020906385 3.1415900000000638</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='Apriltag36_11_00000_0'>
+      <link name='link'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.5</mass>
+          <inertia>
+            <ixx>0.0001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0001</iyy>
+            <iyz>0</iyz>
+            <izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/kir/go_sim2/src/gazebo_sim/models/Apriltag36_11_00000/model://Apriltag36_11_00000/meshes/tag36_11_00000.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>10000000</kp>
+                <kd>1</kd>
+                <min_depth>0.001</min_depth>
+                <max_vel>0.10000000000000001</max_vel>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/kir/go_sim2/src/gazebo_sim/models/Apriltag36_11_00000/model://Apriltag36_11_00000/meshes/tag36_11_00000.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-24.043399810791016 29.605567932128906 0.22224019467830641 -1.5234998975592793 0 0</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='Apriltag36_11_00000_2'>
+      <link name='link'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.5</mass>
+          <inertia>
+            <ixx>0.0001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0001</iyy>
+            <iyz>0</iyz>
+            <izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/kir/go_sim2/src/gazebo_sim/models/Apriltag36_11_00000/model://Apriltag36_11_00000/meshes/tag36_11_00000.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>10000000</kp>
+                <kd>1</kd>
+                <min_depth>0.001</min_depth>
+                <max_vel>0.10000000000000001</max_vel>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/kir/go_sim2/src/gazebo_sim/models/Apriltag36_11_00000/model://Apriltag36_11_00000/meshes/tag36_11_00000.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>6.2088646888732892 -30.742900848388668 0.36798983812332153 3.1415899999989918 1.5150100214949509 3.1415899999989918</pose>
+      <static>false</static>
       <self_collide>false</self_collide>
     </model>
     <light name='sun' type='directional'>
