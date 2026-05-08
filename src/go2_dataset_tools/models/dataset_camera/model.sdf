@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<sdf version="1.10">
+  <model name="dataset_camera">
+    <static>true</static>
+    <pose>0 0 0 0 0 0</pose>
+    <link name="camera_link">
+      <pose>0 0 0 0 0 0</pose>
+      <visual name="body_visual">
+        <geometry>
+          <box>
+            <size>0.08 0.04 0.04</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.05 0.05 0.05 1</ambient>
+          <diffuse>0.05 0.05 0.05 1</diffuse>
+          <specular>0.2 0.2 0.2 1</specular>
+        </material>
+      </visual>
+      <sensor name="color_camera" type="camera">
+        <pose>0 0 0 0 0 0</pose>
+        <visualize>true</visualize>
+        <update_rate>25</update_rate>
+        <topic>/dataset_camera/color/image_raw</topic>
+        <gz_frame_id>dataset_camera</gz_frame_id>
+        <camera>
+          <camera_info_topic>/dataset_camera/color/camera_info</camera_info_topic>
+          <horizontal_fov>1.9</horizontal_fov>
+          <image>
+            <format>R8G8B8</format>
+            <width>1280</width>
+            <height>720</height>
+          </image>
+          <clip>
+            <near>0.05</near>
+            <far>100.0</far>
+          </clip>
+        </camera>
+      </sensor>
+    </link>
+  </model>
+</sdf>
