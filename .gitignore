@@ -3,9 +3,14 @@ install/
 log/
 
 .codex/
+.agents/
 
 __pycache__/
 *.pyc
 
 .vscode/
 .DS_Store
+
+datasets/
+*.bag
+*.db3

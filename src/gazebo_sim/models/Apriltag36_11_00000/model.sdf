@@ -19,6 +19,7 @@
         <geometry>
           <mesh>
             <uri>model://Apriltag36_11_00000/meshes/tag36_11_00000.dae</uri>
+            <scale>1.25 1.25 1</scale>
           </mesh>
         </geometry>
         <surface>
@@ -43,6 +44,7 @@
         <geometry>
           <mesh>
             <uri>model://Apriltag36_11_00000/meshes/tag36_11_00000.dae</uri>
+            <scale> 1.25 1.25 1</scale>
           </mesh>
         </geometry>
       </visual>

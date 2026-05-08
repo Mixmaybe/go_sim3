@@ -1,0 +1,13 @@
+world_name: city_second
+image_topic: /dataset_camera/color/image_raw
+camera_info_topic: /dataset_camera/color/camera_info
+camera_model_name: dataset_camera
+output_dir: datasets/city_cv_yolo_raw
+num_images: 6000
+height: 0.35
+seed: 42
+distribution:
+  people: 2000
+  traffic_light: 1500
+  apriltag: 1500
+  background: 1000
