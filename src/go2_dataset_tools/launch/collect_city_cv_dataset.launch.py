@@ -46,10 +46,13 @@ def generate_launch_description():
     world_name = LaunchConfiguration("world_name")
     output_dir = LaunchConfiguration("output_dir")
     num_images = LaunchConfiguration("num_images")
-    height = LaunchConfiguration("height")
+    width = LaunchConfiguration("width")
+    height_image = LaunchConfiguration("height_image")
+    camera_height = LaunchConfiguration("camera_height")
+    horizontal_fov = LaunchConfiguration("horizontal_fov")
     seed = LaunchConfiguration("seed")
     start_gazebo = LaunchConfiguration("start_gazebo")
-    gazebo_server_only = LaunchConfiguration("gazebo_server_only")
+    use_gazebo_gui = LaunchConfiguration("use_gazebo_gui")
     camera_model_name = LaunchConfiguration("camera_model_name")
 
     default_world_path = _default_world_path()
@@ -68,24 +71,34 @@ def generate_launch_description():
         EnvironmentVariable("GZ_SIM_RESOURCE_PATH", default_value=""),
     ]
 
-    gazebo = IncludeLaunchDescription(
+    gazebo_gui = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             PathJoinSubstitution([ros_gz_sim_share, "launch", "gz_sim.launch.py"])
         ),
         launch_arguments={
-            "gz_args": [
-                PythonExpression(
-                    [
-                        "'-r -s -v4 ' if '",
-                        gazebo_server_only,
-                        "' == 'true' else '-r -v4 '",
-                    ]
-                ),
-                world_path,
-            ],
+            "gz_args": ["-r -v4 ", world_path],
             "on_exit_shutdown": "true",
         }.items(),
-        condition=IfCondition(start_gazebo),
+        condition=IfCondition(
+            PythonExpression(
+                ["'", start_gazebo, "' == 'true' and '", use_gazebo_gui, "' == 'true'"]
+            )
+        ),
+    )
+
+    gazebo_server = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            PathJoinSubstitution([ros_gz_sim_share, "launch", "gz_sim.launch.py"])
+        ),
+        launch_arguments={
+            "gz_args": ["-s -r -v4 ", world_path],
+            "on_exit_shutdown": "true",
+        }.items(),
+        condition=IfCondition(
+            PythonExpression(
+                ["'", start_gazebo, "' == 'true' and '", use_gazebo_gui, "' != 'true'"]
+            )
+        ),
     )
 
     spawn_camera = Node(
@@ -107,7 +120,7 @@ def generate_launch_description():
             "-y",
             "0.0",
             "-z",
-            height,
+            camera_height,
         ],
     )
 
@@ -136,8 +149,14 @@ def generate_launch_description():
             output_dir,
             "--num-images",
             num_images,
-            "--height",
-            height,
+            "--width",
+            width,
+            "--height-image",
+            height_image,
+            "--camera-height",
+            camera_height,
+            "--horizontal-fov",
+            horizontal_fov,
             "--seed",
             seed,
             "--camera-model-name",
@@ -168,9 +187,24 @@ def generate_launch_description():
                 description="Number of images to collect.",
             ),
             DeclareLaunchArgument(
-                "height",
+                "width",
+                default_value="640",
+                description="Dataset camera image width.",
+            ),
+            DeclareLaunchArgument(
+                "height_image",
+                default_value="360",
+                description="Dataset camera image height.",
+            ),
+            DeclareLaunchArgument(
+                "camera_height",
                 default_value="0.35",
                 description="Dataset camera height above ground.",
+            ),
+            DeclareLaunchArgument(
+                "horizontal_fov",
+                default_value="1.6",
+                description="Dataset camera horizontal field of view in radians.",
             ),
             DeclareLaunchArgument(
                 "seed",
@@ -183,9 +217,9 @@ def generate_launch_description():
                 description="Start Gazebo with world_path before collecting.",
             ),
             DeclareLaunchArgument(
-                "gazebo_server_only",
-                default_value="false",
-                description="Run Gazebo server without GUI.",
+                "use_gazebo_gui",
+                default_value="true",
+                description="Start Gazebo GUI. If false, run gz sim -s headless server.",
             ),
             DeclareLaunchArgument(
                 "camera_model_name",
@@ -194,7 +228,8 @@ def generate_launch_description():
             ),
             SetEnvironmentVariable("GZ_SIM_RESOURCE_PATH", gz_resource_path),
             SetEnvironmentVariable("IGN_GAZEBO_RESOURCE_PATH", gz_resource_path),
-            gazebo,
+            gazebo_gui,
+            gazebo_server,
             dataset_camera_bridge,
             TimerAction(period=5.0, actions=[spawn_camera]),
             TimerAction(period=6.0, actions=[collector]),

@@ -19,21 +19,21 @@
       </visual>
       <sensor name="color_camera" type="camera">
         <pose>0 0 0 0 0 0</pose>
-        <visualize>true</visualize>
-        <update_rate>25</update_rate>
+        <visualize>false</visualize>
+        <update_rate>5</update_rate>
         <topic>/dataset_camera/color/image_raw</topic>
         <gz_frame_id>dataset_camera</gz_frame_id>
         <camera>
           <camera_info_topic>/dataset_camera/color/camera_info</camera_info_topic>
-          <horizontal_fov>1.9</horizontal_fov>
+          <horizontal_fov>1.6</horizontal_fov>
           <image>
             <format>R8G8B8</format>
-            <width>1280</width>
-            <height>720</height>
+            <width>640</width>
+            <height>360</height>
           </image>
           <clip>
             <near>0.05</near>
-            <far>100.0</far>
+            <far>50.0</far>
           </clip>
         </camera>
       </sensor>

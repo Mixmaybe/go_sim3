@@ -4,10 +4,17 @@ camera_info_topic: /dataset_camera/color/camera_info
 camera_model_name: dataset_camera
 output_dir: datasets/city_cv_yolo_raw
 num_images: 6000
-height: 0.35
+width: 640
+height_image: 360
+camera_height: 0.35
+horizontal_fov: 1.6
 seed: 42
+debug_preview_count: 200
+safety_margin: 0.35
+max_attempts_per_image: 200
+min_bbox_size_px: 16
 distribution:
-  people: 2000
-  traffic_light: 1500
-  apriltag: 1500
-  background: 1000
+  around_people: 2000
+  around_traffic_lights: 1500
+  around_apriltags: 1500
+  background_random: 1000

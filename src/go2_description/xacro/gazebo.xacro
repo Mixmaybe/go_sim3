@@ -122,18 +122,18 @@
             <sensor name="laser" type="gpu_lidar">
                 <pose> 0 0 0 0 0 0 </pose>
                 <visualize>false</visualize>
-                <update_rate>10</update_rate>
+                <update_rate>5</update_rate>
                 <lidar>
                     <scan>
                         <horizontal>
-                            <samples>360</samples>
+                            <samples>180</samples>
                             <min_angle>-3.14</min_angle>
                             <max_angle>3.14</max_angle>
                         </horizontal>
                     </scan>
                     <range>
                         <min>0.05</min>
-                        <max>12</max>
+                        <max>8</max>
                     </range>
                 </lidar>
                 <topic>/${robot_name}/scan</topic>
@@ -148,19 +148,19 @@
 
             <sensor name="camera" type="camera">
                 <pose> 0 0 0.30 0 0 0 </pose>
-                <visualize>true</visualize>
-                <update_rate>25</update_rate>
+                <visualize>false</visualize>
+                <update_rate>5</update_rate>
                 <camera>
                     <camera_info_topic>/${robot_name}/color/camera_info</camera_info_topic>
-                    <horizontal_fov>1.9</horizontal_fov>
+                    <horizontal_fov>1.6</horizontal_fov>
                     <image>
                         <format>R8G8B8</format>
-                        <width>1280</width>
-                        <height>720</height>
+                        <width>640</width>
+                        <height>360</height>
                     </image>
                     <clip>
                         <near>0.05</near>
-                        <far>100.0</far>
+                        <far>30.0</far>
                     </clip>
                 </camera>
                 <topic>/${robot_name}/color/image_raw</topic>

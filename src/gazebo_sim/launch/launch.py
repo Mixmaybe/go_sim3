@@ -5,8 +5,9 @@ from launch.actions import (
     ExecuteProcess,
     RegisterEventHandler
 )
+from launch.conditions import IfCondition, UnlessCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, PythonExpression
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch.event_handlers import OnProcessExit
 from launch_ros.actions import SetParameter
 from launch_ros.substitutions import FindPackageShare
@@ -17,11 +18,11 @@ def generate_launch_description():
     pkg_share = FindPackageShare(package_name)
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
-    world = LaunchConfiguration('world', default='city_edit2.sdf')
-    robot_model = LaunchConfiguration('robot_model', default='model_0')
+    world = LaunchConfiguration('world', default='city_cv.sdf')
+    robot_model = LaunchConfiguration('robot_model', default='model_5')
     enable_rviz = LaunchConfiguration('enable_rviz', default='true')
     enable_gui = LaunchConfiguration('enable_gui', default='true')
-    gazebo_server_only = LaunchConfiguration('gazebo_server_only', default='false')
+    use_gazebo_gui = LaunchConfiguration('use_gazebo_gui', default='true')
     enable_odom_debug = LaunchConfiguration('enable_odom_debug', default='true')
     enable_ekf = LaunchConfiguration('enable_ekf', default='false')
     use_ground_truth_odom = LaunchConfiguration('use_ground_truth_odom', default='false')
@@ -40,8 +41,11 @@ def generate_launch_description():
                                        description='Запускать RViz'))
     ld.add_action(DeclareLaunchArgument('enable_gui', default_value='true',
                                        description='Запускать GUI управления'))
-    ld.add_action(DeclareLaunchArgument('gazebo_server_only', default_value='false',
-                                       description='Запускать Gazebo только как server без GUI окна'))
+    ld.add_action(DeclareLaunchArgument(
+        'use_gazebo_gui',
+        default_value='true',
+        description='Запускать Gazebo GUI. Если false, Gazebo запускается только как server: gz sim -s'
+    ))
     ld.add_action(DeclareLaunchArgument('enable_odom_debug', default_value='true',
                                        description='Запускать debug-узлы одометрии'))
     ld.add_action(DeclareLaunchArgument('enable_ekf', default_value='false',
@@ -57,19 +61,30 @@ def generate_launch_description():
 
 
     world_file = PathJoinSubstitution([pkg_share, 'world', world])
-    gz_args = [
-        PythonExpression([
-            "'-r -s -v4 ' if '", gazebo_server_only, "' == 'true' else '-r -v4 '"
-        ]),
-        world_file
-    ]
-    gazebo = IncludeLaunchDescription(
+    gazebo_gui = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(PathJoinSubstitution([
             FindPackageShare('ros_gz_sim'), 'launch', 'gz_sim.launch.py'
         ])),
-        launch_arguments={'gz_args': gz_args, 'on_exit_shutdown': 'true'}.items()
+        launch_arguments={
+            'gz_args': ['-r -v4 ', world_file],
+            'on_exit_shutdown': 'true'
+        }.items(),
+        condition=IfCondition(use_gazebo_gui)
     )
-    ld.add_action(gazebo)
+
+    gazebo_server = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(PathJoinSubstitution([
+            FindPackageShare('ros_gz_sim'), 'launch', 'gz_sim.launch.py'
+        ])),
+        launch_arguments={
+            'gz_args': ['-s -r -v4 ', world_file],
+            'on_exit_shutdown': 'true'
+        }.items(),
+        condition=UnlessCondition(use_gazebo_gui)
+    )
+
+    ld.add_action(gazebo_gui)
+    ld.add_action(gazebo_server)
 
     pause = ExecuteProcess(
         cmd=['sleep', '15'],
