@@ -10,3 +10,7 @@ __pycache__/
 
 .vscode/
 .DS_Store
+
+datasets/
+*.bag
+*.db3
