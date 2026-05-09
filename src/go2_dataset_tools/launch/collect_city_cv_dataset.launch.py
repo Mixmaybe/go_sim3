@@ -46,6 +46,8 @@ def generate_launch_description():
     world_name = LaunchConfiguration("world_name")
     output_dir = LaunchConfiguration("output_dir")
     num_images = LaunchConfiguration("num_images")
+    start_index = LaunchConfiguration("start_index")
+    skip_existing = LaunchConfiguration("skip_existing")
     width = LaunchConfiguration("width")
     height_image = LaunchConfiguration("height_image")
     camera_height = LaunchConfiguration("camera_height")
@@ -149,6 +151,10 @@ def generate_launch_description():
             output_dir,
             "--num-images",
             num_images,
+            "--start-index",
+            start_index,
+            "--skip-existing",
+            skip_existing,
             "--width",
             width,
             "--height-image",
@@ -185,6 +191,16 @@ def generate_launch_description():
                 "num_images",
                 default_value="6000",
                 description="Number of images to collect.",
+            ),
+            DeclareLaunchArgument(
+                "start_index",
+                default_value="1",
+                description="First image index to write. Example: 501 writes img_000501.png first.",
+            ),
+            DeclareLaunchArgument(
+                "skip_existing",
+                default_value="false",
+                description="Skip image/label pairs that already exist in output_dir.",
             ),
             DeclareLaunchArgument(
                 "width",
