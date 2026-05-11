@@ -58,7 +58,7 @@ OBJECT_PROXY_SIZES = {
     },
     "apriltag": {
         "width": 0.40,
-        "depth": 0.02,
+        "depth": 0.40,
         "height": 0.40,
         "z_offset": 0.20,
     },
@@ -1148,7 +1148,26 @@ class DatasetCollector(Node):
         self.get_logger().info(f"Waiting for initial image on {self.args.image_topic}")
         self.wait_for_fresh_image(previous_seq=0, min_new_frames=1)
 
-        with metadata_path.open("w", newline="", encoding="utf-8") as metadata_file:
+        metadata_mode = "a" if self.args.append_metadata and metadata_path.exists() else "w"
+        metadata_needs_header = (
+            metadata_mode == "w"
+            or not metadata_path.exists()
+            or metadata_path.stat().st_size == 0
+        )
+
+        start_index = self.args.start_index
+        end_index = self.args.start_index + self.args.num_images - 1
+        self.get_logger().info(
+            f"Image index range: img_{start_index:06d}.png ... img_{end_index:06d}.png"
+        )
+        if self.args.skip_existing:
+            self.get_logger().info("skip_existing is enabled: existing image/label pairs will be skipped.")
+        if metadata_mode == "a":
+            self.get_logger().info(f"Appending metadata to {metadata_path}")
+        else:
+            self.get_logger().info(f"Writing metadata to {metadata_path}")
+
+        with metadata_path.open(metadata_mode, newline="", encoding="utf-8") as metadata_file:
             writer = csv.DictWriter(
                 metadata_file,
                 fieldnames=[
@@ -1176,28 +1195,40 @@ class DatasetCollector(Node):
                     "notes",
                 ],
             )
-            writer.writeheader()
+            if metadata_needs_header:
+                writer.writeheader()
 
             saved_count = 0
             skipped_count = 0
+            skipped_existing_count = 0
             mode_index = 0
-            while saved_count < self.args.num_images and mode_index < len(modes):
+            image_index = start_index
+
+            while image_index <= end_index and mode_index < len(modes):
+                filename = f"img_{image_index:06d}.png"
+                image_path = images_dir / filename
+                label_path = labels_dir / filename.replace(".png", ".txt")
+                debug_path = debug_dir / filename.replace(".png", "_debug.png")
+                rejection_path = debug_dir / filename.replace(".png", "_rejections.txt")
+
+                if self.args.skip_existing and image_path.exists() and label_path.exists():
+                    skipped_existing_count += 1
+                    self.get_logger().info(
+                        f"[{image_index - start_index + 1}/{self.args.num_images}] "
+                        f"skip existing {filename}"
+                    )
+                    image_index += 1
+                    continue
+
                 mode = modes[mode_index]
                 mode_index += 1
                 planned = planner.plan(mode)
                 if planned is None:
                     skipped_count += 1
                     self.get_logger().warning(
-                        f"Skipping requested frame {mode_index}: no valid pose for mode={mode}"
+                        f"Skipping requested frame index={image_index}: no valid pose for mode={mode}"
                     )
                     continue
-
-                saved_count += 1
-                filename = f"img_{saved_count:06d}.png"
-                image_path = images_dir / filename
-                label_path = labels_dir / filename.replace(".png", ".txt")
-                debug_path = debug_dir / filename.replace(".png", "_debug.png")
-                rejection_path = debug_dir / filename.replace(".png", "_rejections.txt")
 
                 last_error = None
                 for attempt in range(1, self.args.max_capture_retries + 1):
@@ -1222,8 +1253,10 @@ class DatasetCollector(Node):
                 else:
                     raise RuntimeError(f"Failed to collect {filename}: {last_error}")
 
+                saved_count += 1
                 label_result = labeler.labels_for_pose(planned.pose, planned.target)
                 self.save_labels(label_result.labels, label_path)
+
                 if saved_count <= self.args.debug_preview_count:
                     self.save_debug_preview(image, label_result.labels, debug_path)
                     if self.args.save_rejection_debug:
@@ -1266,14 +1299,24 @@ class DatasetCollector(Node):
                 )
                 metadata_file.flush()
                 self.get_logger().info(
-                    f"[{saved_count}/{self.args.num_images}] mode={planned.mode} "
+                    f"[{image_index - start_index + 1}/{self.args.num_images}] "
+                    f"file={filename} mode={planned.mode} "
                     f"labels={len(label_result.labels)} saved={image_path}"
                 )
+                image_index += 1
 
-            if saved_count < self.args.num_images:
+            requested_count = end_index - start_index + 1
+            completed_count = saved_count + skipped_existing_count
+            if completed_count < requested_count:
                 self.get_logger().warning(
-                    f"Saved {saved_count}/{self.args.num_images} images; "
+                    f"Completed {completed_count}/{requested_count} slots "
+                    f"(saved_new={saved_count}, skipped_existing={skipped_existing_count}); "
                     f"skipped {skipped_count} requested frames after pose planning failures."
+                )
+            else:
+                self.get_logger().info(
+                    f"Completed index range {start_index}..{end_index}: "
+                    f"saved_new={saved_count}, skipped_existing={skipped_existing_count}."
                 )
 
 
@@ -1291,6 +1334,17 @@ def positive_float(value):
     return parsed
 
 
+def str2bool(value):
+    if isinstance(value, bool):
+        return value
+    lower = str(value).strip().lower()
+    if lower in ("true", "1", "yes", "y", "on"):
+        return True
+    if lower in ("false", "0", "no", "n", "off"):
+        return False
+    raise argparse.ArgumentTypeError("value must be true or false")
+
+
 def build_arg_parser():
     parser = argparse.ArgumentParser(
         description="Collect approximate YOLO labels and RGB images from the city_cv Gazebo world."
@@ -1299,6 +1353,31 @@ def build_arg_parser():
     parser.add_argument("--world-name", default="city_second")
     parser.add_argument("--output-dir", default=default_output_dir())
     parser.add_argument("--num-images", type=positive_int, default=6000)
+    parser.add_argument(
+        "--start-index",
+        type=positive_int,
+        default=1,
+        help="First image index to write. Example: 501 writes img_000501.png first.",
+    )
+    parser.add_argument(
+        "--skip-existing",
+        nargs="?",
+        const=True,
+        default=False,
+        type=str2bool,
+        help="Skip image/label pairs that already exist in the output directory.",
+    )
+    parser.add_argument(
+        "--append-metadata",
+        nargs="?",
+        const=None,
+        default=None,
+        type=str2bool,
+        help=(
+            "Append to metadata.csv instead of overwriting. "
+            "Default: true when start_index > 1 or skip_existing is enabled."
+        ),
+    )
     parser.add_argument("--width", type=positive_int, default=640)
     parser.add_argument("--height-image", type=positive_int, default=360)
     parser.add_argument("--camera-height", type=positive_float, default=0.35)
@@ -1326,6 +1405,8 @@ def main(argv=None):
     parser = build_arg_parser()
     args, ros_args = parser.parse_known_args(argv)
     args.debug_preview_count = max(0, args.debug_preview_count)
+    if args.append_metadata is None:
+        args.append_metadata = args.start_index > 1 or args.skip_existing
 
     rclpy.init(args=ros_args)
     node = DatasetCollector(args)
