@@ -14,3 +14,9 @@ __pycache__/
 datasets/
 *.bag
 *.db3
+
+.venv-roboflow/
+.venv-roboflow-clean/
+.venv-yolo/
+roboflow_upload/
+
