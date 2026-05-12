@@ -18,7 +18,7 @@ def generate_launch_description():
     pkg_share = FindPackageShare(package_name)
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
-    world = LaunchConfiguration('world', default='city_cv.sdf')
+    world = LaunchConfiguration('world', default='city_cv_final.sdf')
     robot_model = LaunchConfiguration('robot_model', default='model_5')
     enable_rviz = LaunchConfiguration('enable_rviz', default='true')
     enable_gui = LaunchConfiguration('enable_gui', default='true')
@@ -27,13 +27,19 @@ def generate_launch_description():
     enable_ekf = LaunchConfiguration('enable_ekf', default='false')
     use_ground_truth_odom = LaunchConfiguration('use_ground_truth_odom', default='false')
     use_gazebo_truth_odom = LaunchConfiguration('use_gazebo_truth_odom', default='true')
+    enable_yolo = LaunchConfiguration('enable_yolo', default='false')
+    yolo_model_path = LaunchConfiguration('yolo_model_path', default='models/yolo/city_cv_yolo11n_best.pt')
+    yolo_period_sec = LaunchConfiguration('yolo_period_sec', default='2.0')
+    yolo_conf = LaunchConfiguration('yolo_conf', default='0.5')
+    yolo_device = LaunchConfiguration('yolo_device', default='0')
+    show_yolo_window = LaunchConfiguration('show_yolo_window', default='true')
     ld.add_action(DeclareLaunchArgument('use_sim_time', default_value='true',
                                        description='Использовать симуляционное время'))
-    ld.add_action(DeclareLaunchArgument('world', default_value='city_edit2.sdf',
+    ld.add_action(DeclareLaunchArgument('world', default_value='city_cv_final.sdf',
                                        description='SDF world file from gazebo_sim/world'))
     ld.add_action(DeclareLaunchArgument(
         'robot_model',
-        default_value='model_0',
+        default_value='model_5',
         description='Модель робота: model_0, model_1, model_3, model_5, model_7',
         choices=['model_0', 'model_1', 'model_3', 'model_5', 'model_7']
     ))
@@ -56,6 +62,18 @@ def generate_launch_description():
                                        description='Использовать Gazebo model pose как рабочую odometry в симуляции'))
     ld.add_action(DeclareLaunchArgument('use_gazebo_truth_odom.py', default_value='true',
                                        description='Compatibility alias for use_gazebo_truth_odom'))
+    ld.add_action(DeclareLaunchArgument('enable_yolo', default_value='false',
+                                       description='Запускать опциональный YOLO detector для robot1'))
+    ld.add_action(DeclareLaunchArgument('yolo_model_path', default_value='models/yolo/city_cv_yolo11n_best.pt',
+                                       description='Путь к весам YOLO модели'))
+    ld.add_action(DeclareLaunchArgument('yolo_period_sec', default_value='2.0',
+                                       description='Период inference YOLO в секундах'))
+    ld.add_action(DeclareLaunchArgument('yolo_conf', default_value='0.5',
+                                       description='Порог confidence для YOLO'))
+    ld.add_action(DeclareLaunchArgument('yolo_device', default_value='0',
+                                       description='Ultralytics device, например 0 или cpu'))
+    ld.add_action(DeclareLaunchArgument('show_yolo_window', default_value='true',
+                                       description='Показывать OpenCV окно YOLO'))
 
     ld.add_action(SetParameter(name='use_sim_time', value=use_sim_time))
 
@@ -106,6 +124,12 @@ def generate_launch_description():
             'enable_ekf': enable_ekf,
             'use_ground_truth_odom': use_ground_truth_odom,
             'use_gazebo_truth_odom': use_gazebo_truth_odom,
+            'enable_yolo': enable_yolo,
+            'yolo_model_path': yolo_model_path,
+            'yolo_period_sec': yolo_period_sec,
+            'yolo_conf': yolo_conf,
+            'yolo_device': yolo_device,
+            'show_yolo_window': show_yolo_window,
         }.items()
     )
 
