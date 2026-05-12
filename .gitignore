@@ -20,3 +20,5 @@ datasets/
 .venv-yolo/
 roboflow_upload/
 
+yolo11n.pt
+yolo26n.pt

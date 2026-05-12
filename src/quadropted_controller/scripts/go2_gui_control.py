@@ -9,6 +9,8 @@ from rclpy.node import Node
 from geometry_msgs.msg import Twist
 from quadropted_msgs.msg import RobotModeCommand
 from quadropted_msgs.srv import RobotBehaviorCommand
+from std_msgs.msg import String
+from std_srvs.srv import SetBool
 
 
 class Go2GuiNode(Node):
@@ -33,9 +35,20 @@ class Go2GuiNode(Node):
             RobotBehaviorCommand,
             f'{self.ns}/robot_behavior_command'
         )
+        self.yolo_cli = self.create_client(
+            SetBool,
+            f'{self.ns}/vision/set_yolo_enabled'
+        )
+        self.yolo_log_sub = self.create_subscription(
+            String,
+            f'{self.ns}/vision/yolo_log',
+            self._yolo_log_callback,
+            10
+        )
 
         self.current_behavior = None
         self.current_mode = None
+        self.yolo_enabled = False
         self._last_twist = None
 
         self.log(f'GUI node started for {self.ns}, robot_id={self.robot_id}')
@@ -93,6 +106,44 @@ class Go2GuiNode(Node):
             )
         except Exception as exc:
             self.log(f'behavior call failed: {exc}')
+
+    def toggle_yolo(self):
+        requested_state = not self.yolo_enabled
+
+        if not self.yolo_cli.wait_for_service(timeout_sec=0.5):
+            self.log('[YOLO] service is unavailable')
+            return
+
+        req = SetBool.Request()
+        req.data = requested_state
+        future = self.yolo_cli.call_async(req)
+        future.add_done_callback(self._yolo_done)
+        self.log(f'[YOLO] request: {"ON" if requested_state else "OFF"}')
+
+    def _yolo_done(self, future):
+        try:
+            response = future.result()
+            message = response.message or ''
+            if response.success:
+                if 'включен' in message:
+                    self.yolo_enabled = True
+                elif 'выключен' in message:
+                    self.yolo_enabled = False
+            self.log(f'[YOLO] response: success={response.success}, message={response.message}')
+        except Exception as exc:
+            self.log(f'[YOLO] service call failed: {exc}')
+
+    def _yolo_log_callback(self, msg: String):
+        text = msg.data
+        if text.startswith('YOLO: '):
+            text = text[len('YOLO: '):]
+
+        if text == 'включен':
+            self.yolo_enabled = True
+        elif text == 'выключен':
+            self.yolo_enabled = False
+
+        self.log_queue.put(f'[YOLO] {text}')
 
     def ensure_walk(self):
         self.call_behavior('walk')
@@ -189,6 +240,16 @@ class Go2GuiApp:
         for c in range(3):
             controls.columnconfigure(c, weight=1)
 
+        vision = ttk.LabelFrame(main, text='Компьютерное зрение', padding=8)
+        vision.pack(fill='x', pady=(0, 10))
+
+        self.yolo_button = ttk.Button(
+            vision,
+            text='YOLO: OFF',
+            command=self.node.toggle_yolo
+        )
+        self.yolo_button.pack(fill='x', padx=4, pady=4)
+
         log_frame = ttk.LabelFrame(main, text='Лог', padding=8)
         log_frame.pack(fill='both', expand=True)
 
@@ -237,7 +298,13 @@ class Go2GuiApp:
             self.log_text.insert('end', line + '\n')
             self.log_text.see('end')
             self.log_text.configure(state='disabled')
+        self._update_yolo_button()
         self.root.after(100, self._drain_logs)
+
+    def _update_yolo_button(self):
+        if hasattr(self, 'yolo_button'):
+            text = 'YOLO: ON' if self.node.yolo_enabled else 'YOLO: OFF'
+            self.yolo_button.configure(text=text)
 
     def on_close(self):
         self.node.stop()

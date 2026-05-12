@@ -78,6 +78,45 @@ def generate_launch_description():
         description='Модель робота: model_0, model_1, model_3, model_5, model_7',
         choices=['model_0', 'model_1', 'model_3', 'model_5', 'model_7']
     )
+    enable_yolo = LaunchConfiguration('enable_yolo', default='false')
+    declare_enable_yolo = DeclareLaunchArgument(
+        name='enable_yolo',
+        default_value='false',
+        description='Enable optional YOLO detector for robot1'
+    )
+    yolo_model_path = LaunchConfiguration(
+        'yolo_model_path',
+        default='models/yolo/city_cv_yolo11n_best.pt'
+    )
+    declare_yolo_model_path = DeclareLaunchArgument(
+        name='yolo_model_path',
+        default_value='models/yolo/city_cv_yolo11n_best.pt',
+        description='Path to YOLO model weights'
+    )
+    yolo_period_sec = LaunchConfiguration('yolo_period_sec', default='2.0')
+    declare_yolo_period_sec = DeclareLaunchArgument(
+        name='yolo_period_sec',
+        default_value='2.0',
+        description='YOLO inference period in seconds'
+    )
+    yolo_conf = LaunchConfiguration('yolo_conf', default='0.5')
+    declare_yolo_conf = DeclareLaunchArgument(
+        name='yolo_conf',
+        default_value='0.5',
+        description='YOLO confidence threshold'
+    )
+    yolo_device = LaunchConfiguration('yolo_device', default='0')
+    declare_yolo_device = DeclareLaunchArgument(
+        name='yolo_device',
+        default_value='0',
+        description='Ultralytics device, for example 0 or cpu'
+    )
+    show_yolo_window = LaunchConfiguration('show_yolo_window', default='true')
+    declare_show_yolo_window = DeclareLaunchArgument(
+        name='show_yolo_window',
+        default_value='true',
+        description='Show optional YOLO OpenCV window'
+    )
 
     ld.add_action(declare_enable_rviz)
     ld.add_action(declare_enable_gui)
@@ -87,6 +126,12 @@ def generate_launch_description():
     ld.add_action(declare_use_gazebo_truth_odom)
     ld.add_action(declare_use_sim_time)
     ld.add_action(declare_robot_model)
+    ld.add_action(declare_enable_yolo)
+    ld.add_action(declare_yolo_model_path)
+    ld.add_action(declare_yolo_period_sec)
+    ld.add_action(declare_yolo_conf)
+    ld.add_action(declare_yolo_device)
+    ld.add_action(declare_show_yolo_window)
 
     remappings_initial = [
         ("/tf", "tf"),
@@ -143,6 +188,9 @@ def generate_launch_description():
         namespace = robot['name']
         robot_name = robot['name']
         robot1_condition = IfCondition(PythonExpression(["'", namespace, "' == 'robot1'"]))
+        robot1_yolo_condition = IfCondition(
+            PythonExpression(["'", enable_yolo, "' == 'true' and '", namespace, "' == 'robot1'"])
+        )
         robot1_debug_condition = IfCondition(
             PythonExpression(["'", enable_odom_debug, "' == 'true' and '", namespace, "' == 'robot1'"])
         )
@@ -553,6 +601,26 @@ def generate_launch_description():
             condition=IfCondition(enable_gui)
         )
 
+        yolo_detector = Node(
+            package='go2_vision',
+            executable='yolo_detector_node',
+            namespace=namespace,
+            name='yolo_detector_node',
+            output='screen',
+            parameters=[{
+                'image_topic': f'/{namespace}/color/image_raw',
+                'model_path': yolo_model_path,
+                'inference_period_sec': ParameterValue(yolo_period_sec, value_type=float),
+                'confidence_threshold': ParameterValue(yolo_conf, value_type=float),
+                'imgsz': 640,
+                'device': yolo_device,
+                'publish_annotated_image': True,
+                'enable_yolo': True,
+                'show_yolo_window': ParameterValue(show_yolo_window, value_type=bool),
+            }],
+            condition=robot1_yolo_condition
+        )
+
         fake_bms = ExecuteProcess(
             cmd=[
                 'ros2', 'topic', 'pub', f'/{namespace}/battery_state', 'sensor_msgs/msg/BatteryState',
@@ -583,6 +651,7 @@ def generate_launch_description():
             controller,
             cmd_vel_pub,
             gui_control,
+            yolo_detector,
             ground_truth_odom,
             gazebo_truth_odom,
             map_to_odom_static_tf,
