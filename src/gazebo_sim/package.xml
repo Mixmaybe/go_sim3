@@ -34,6 +34,7 @@
   <depend>opennav_docking</depend>
   <depend>robot_localization</depend>
   <depend>gz_ros2_control</depend>
+  <exec_depend>go2_vision</exec_depend>
   <exec_depend>ros2_controllers</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
